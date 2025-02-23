@@ -4,9 +4,15 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #fff5e6; /* 浅橙黄色，带有一点温暖的感觉 */
+    background-color: #fff5e6;
     color: #333;
-    scroll-behavior: smooth; /* スムーズスクロール */
+    scroll-behavior: smooth;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
 }
 
 /* ヘッダー */
@@ -17,14 +23,19 @@ header {
     text-align: center;
     padding: 100px 20px;
     background-size: cover;
-    box-shadow: inset 0 -10px 10px rgba(0, 0, 0, 0.3); /* 内部影 */
+    box-shadow: inset 0 -10px 10px rgba(0, 0, 0, 0.3);
     font-family: 'Noto Serif HK', 'Microsoft JhengHei', Arial, sans-serif;
+}
+
+body.dark-mode header {
+    background-color: #222;
+    color: #e0e0e0;
 }
 
 header h1 {
     font-size: 2.5em;
     margin: 0;
-    font-weight: 700; /* 使用粗体 */
+    font-weight: 700;
 }
 
 header p {
@@ -36,12 +47,16 @@ header p {
 .poem-bar {
     background-color: #cc0000;
     color: white;
-    text-align: left; /* 左詰め */
+    text-align: left;
     padding: 10px 20px;
     font-size: 1.5em;
     font-family: 'LXGW WenKai TC', Arial, sans-serif;
     font-weight: normal;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); /* 影 */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .poem-bar {
+    background-color: #b30000;
 }
 
 /* セクション */
@@ -51,13 +66,24 @@ section {
     max-width: 800px;
     background: white;
     border-radius: 8px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* 影 */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+body.dark-mode section {
+    background-color: #333;
+    color: #e0e0e0;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
 
 section h2 {
     margin-top: 0;
-    color: #cc0000; /* 标题使用红色 */
-    font-weight: 700; /* 使用粗体 */
+    color: #cc0000;
+    font-weight: 700;
+}
+
+body.dark-mode section h2 {
+    color: #ff6666;
 }
 
 ul {
@@ -68,49 +94,12 @@ ul {
 h3 {
     margin-top: 20px;
     font-size: 1.2em;
-    color: #cc0000; /* 子标题也使用红色 */
-    font-weight: 700; /* 使用粗体 */
+    color: #cc0000;
+    font-weight: 700;
 }
 
-/* 深色模式样式 */
-body.dark-mode {
-    background-color: #1a1a1a;
-    color: #e0e0e0;
-}
-
-body.dark-mode header {
-    background-color: #222;
-    color: #e0e0e0;
-}
-
-body.dark-mode .poem-bar {
-    background-color: #444;
-    color: #e0e0e0;
-}
-
-body.dark-mode section {
-    background-color: #333;
-    color: #e0e0e0;
-}
-
-body.dark-mode section h2,
 body.dark-mode h3 {
-    color: #ff6666; /* 更亮的红色，提高对比度 */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* 添加阴影以增强可读性 */
-}
-
-body.dark-mode #banner {
-    background: #333;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* 深色模式下的影 */
-}
-
-body.dark-mode .banner-content p {
-    color: #e0e0e0; /* 深色模式下的文字颜色 */
-}
-
-body.dark-mode ul {
-    list-style-type: disc;
-    padding-left: 20px;
+    color: #ff6666;
 }
 
 /* プロフィールセクション */
@@ -121,12 +110,13 @@ body.dark-mode ul {
     padding: 20px;
     background: #ffffff;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* 影 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 body.dark-mode .profile {
     background: #333;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* 深色模式下的影 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .profile-image {
@@ -134,11 +124,17 @@ body.dark-mode .profile {
     height: 150px;
     border-radius: 50%;
     object-fit: cover;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* 影 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.profile-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.5), 0 0 40px rgba(0, 255, 255, 0.5);
 }
 
 body.dark-mode .profile-image {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* 深色模式下的影 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .profile-info {
@@ -155,12 +151,11 @@ body.dark-mode .profile-image {
 .name-chinese {
     font-size: 2em;
     color: #cc0000;
-    font-weight: 700; /* 使用粗体 */
+    font-weight: 700;
 }
 
 body.dark-mode .name-chinese {
-    color: #ff6666; /* 在深色模式下使用更亮的红色 */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* 添加阴影以增强可读性 */
+    color: #ff6666;
 }
 
 .name-english {
@@ -169,21 +164,26 @@ body.dark-mode .name-chinese {
 }
 
 body.dark-mode .name-english {
-    color: #999; /* 深色模式下的灰色 */
+    color: #999;
 }
 
-/* 橫幅的基本樣式 */
+/* 橫幅の基本スタイル */
 #banner {
     padding: 20px;
     margin: 20px auto;
     max-width: 800px;
     background: white;
     border-radius: 8px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* 影 */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode #banner {
+    background: #333;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
 
 .banner-content img {
-    border: 1px solid #ccc; /* 添加邊框以增強可視性 */
+    border: 1px solid #ccc;
     border-radius: 8px;
     margin-bottom: 10px;
 }
@@ -193,23 +193,46 @@ body.dark-mode .name-english {
     color: #333;
 }
 
+body.dark-mode .banner-content p {
+    color: #e0e0e0;
+}
+
 /* フッター */
 footer {
     text-align: center;
-    padding: 10px;
+    padding: 20px;
     background: #cc0000;
     color: white;
-    box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.2); /* 影 */
+    box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.2);
 }
 
 body.dark-mode footer {
     background: #444;
     color: #e0e0e0;
-    box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.5); /* 深色模式下的影 */
+    box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.5);
 }
 
 footer p {
     margin: 5px 0;
+}
+
+.social-icons {
+    margin-top: 10px;
+}
+
+.social-icons a {
+    color: white;
+    margin: 0 10px;
+    font-size: 1.5em;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #ffd700;
+}
+
+body.dark-mode .social-icons a {
+    color: #e0e0e0;
 }
 
 .language-switcher {
@@ -228,12 +251,12 @@ footer p {
 }
 
 #tongyi {
-    color: gold; /* 使用金色来强调链接 */
+    color: gold;
     font-weight: bold;
 }
 
 body.dark-mode #tongyi {
-    color: #ffd700; /* 深色模式下的金色 */
+    color: #ffd700;
 }
 
 #tongyi:hover {
@@ -249,47 +272,65 @@ body.dark-mode #tongyi {
     background-color: #cc0000;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 50%;
     cursor: pointer;
-    font-size: 1em;
+    font-size: 1.5em;
     z-index: 1000;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.floating-button:hover {
+    transform: scale(1.1);
 }
 
 body.dark-mode .floating-button {
     background-color: #b30000;
 }
 
-/* 全画面ローディングスタイル */
+/* ローディング画面 */
 .full-screen-loading {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #fffdd0; /* クリーム色 */
-    display: none; /* 初期状態は非表示 */
+    background: rgba(255, 255, 255, 0.9);
+    display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     z-index: 1000;
-    font-family: 'Noto Serif HK', serif;
-    transition: opacity 0.5s ease-in-out; /* フェードアウトアニメーション */
+    font-family: 'Poppins', sans-serif;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.full-screen-loading.dark-mode {
+    background: rgba(0, 0, 0, 0.9);
 }
 
 .full-screen-loading .spinner {
-    border: 5px solid #f3f3f3; /* グレー */
-    border-top: 5px solid #cc0000; /* 赤色 */
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-top: 4px solid #cc0000;
     border-radius: 50%;
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     animation: spin 1s linear infinite;
+}
+
+.full-screen-loading.dark-mode .spinner {
+    border-top-color: #ff6666;
 }
 
 .full-screen-loading p {
     margin-top: 20px;
-    color: #333;
     font-size: 1.2em;
+    color: #333;
+    font-weight: 500;
+}
+
+.full-screen-loading.dark-mode p {
+    color: #e0e0e0;
 }
 
 @keyframes spin {
@@ -297,28 +338,8 @@ body.dark-mode .floating-button {
     100% { transform: rotate(360deg); }
 }
 
-/* ローディング画面がフェードアウトするときのスタイル */
 .full-screen-loading.fade-out {
     opacity: 0;
-}
-
-/* ダークモード用のスタイル */
-body.dark-mode {
-    background-color: #1a1a1a;
-    color: #e0e0e0;
-}
-
-body.dark-mode .full-screen-loading {
-    background-color: #333; /* 暗い背景色 */
-}
-
-body.dark-mode .full-screen-loading .spinner {
-    border-top-color: #ff6666; /* 明るい赤色 */
-    border-color: #b39d7f;
-}
-
-body.dark-mode .full-screen-loading p {
-    color: #e0e0e0; /* 明るいテキスト色 */
 }
 
 /* アイコンの基本スタイル */
@@ -327,7 +348,123 @@ body.dark-mode .full-screen-loading p {
     transition: transform 0.2s ease-in-out;
 }
 
-/* クリックされたときのアニメーション */
 .clickable-icon:active {
     transform: scale(0.9);
+}
+
+/* シャドウとアニメーションを追加 */
+header {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    animation: fadeInDown 1s ease-in-out;
+}
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.poem-bar {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    animation: slideInLeft 1s ease-in-out;
+}
+
+@keyframes slideInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+section {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 1s ease-in-out;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.profile-image {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.profile-image:hover {
+    transform: scale(1.1);
+    box-shadow: 0 15px 30px rgba(255, 0, 255, 0.3), 0 10px 20px rgba(0, 255, 255, 0.3);
+}
+
+#banner img {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+#banner img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(255, 0, 255, 0.3), 0 10px 20px rgba(0, 255, 255, 0.3);
+}
+
+footer {
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.2);
+    animation: fadeInUp 1s ease-in-out;
+}
+
+.floating-button {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    animation: fadeInRight 1s ease-in-out;
+}
+
+@keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ローディング画面のアニメーション */
+.full-screen-loading .spinner {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    animation: spin 1s linear infinite, glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 20px rgba(255, 0, 255, 0.3);
+    }
+    100% {
+        box-shadow: 0 0 40px rgba(0, 255, 255, 0.5);
+    }
+}
+
+/* 互聯バナーのスタイル */
+.link-exchange img {
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.link-exchange img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(255, 0, 255, 0.3), 0 10px 20px rgba(0, 255, 255, 0.3);
 }

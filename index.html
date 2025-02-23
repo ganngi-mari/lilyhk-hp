@@ -7,20 +7,22 @@
     <title>陳麗華 Lily Chen</title>
     <!-- Google Fonts: Noto Serif HK, Noto Sans HK, and LXGW WenKai TC Light -->
     <link
-        href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@300&family=Noto+Sans+HK:wght@100..900&family=Noto+Serif+HK:wght@200..900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@300&family=Noto+Sans+HK:wght@100..900&family=Noto+Serif+HK:wght@200..900&family=Poppins:wght@400;700&display=swap"
         rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <!-- 加載畫面 -->
+    <!-- ローディング画面 -->
     <div id="loading-screen" class="full-screen-loading">
         <div class="spinner"></div>
         <p>加載中...</p>
     </div>
 
     <!-- 深色模式切换按钮 -->
-    <button id="toggle-dark-mode" class="floating-button">切换深色模式</button>
+    <button id="toggle-dark-mode" class="floating-button">🌙</button>
 
     <!-- 主要内容 -->
     <header>
@@ -86,7 +88,11 @@
     </section>
     <footer>
         <p>© 2025 陳麗華 (Lily Chen) 版权所有</p>
-        <p>此頁面是使用<a id="tongyi" href="https://tongyi.ai/">通义</a>創建的。</p>
+        <p>這個網站是使用<a href="https://tongyi.ai" target="_blank" id="tongyi">通義</a>、<a href="https://deepseek.com" target="_blank" id="tongyi">Deepseek</a>和<a href="https://felo.ai" target="_blank" id="tongyi">Felo</a>製作的。</p>
+        <div class="social-icons">
+            <a href="https://ussr.rumiserver.com/@pochta_rossii" target="_blank"><i class="fab fa-mastodon"></i></a>
+            <a href="mailto:lily.hkmilktea@etnfed.ru" target="_blank"><i class="fas fa-envelope"></i></a>
+        </div>
         <div class="language-switcher">
             <a href="simp/index.html">简体中文</a> |
             <a href="en/index.html">English</a> |
