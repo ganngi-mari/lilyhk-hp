@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>陳麗華 Lily Chen</title>
+    <!-- Google Fonts: Noto Serif HK, Noto Sans HK, and LXGW WenKai TC Light -->
+    <link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@300&family=Noto+Sans+HK:wght@100..900&family=Noto+Serif+HK:wght@200..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <!-- 加載畫面 -->
+    <div id="loading-screen" class="full-screen-loading">
+        <div class="spinner"></div>
+        <p>加載中...</p>
+    </div>
+
+    <!-- 深色模式切換按鈕 -->
+    <button id="toggle-dark-mode" class="floating-button">切換深色模式</button>
+
+    <!-- 主要內容 -->
+    <header>
+        <h1>歡迎來到我的個人空間</h1>
+        <p>我是陳麗華（Lily Chen），來自遼寧省丹東市，目前居住在香港荔枝角。</p>
+    </header>
+    <div class="poem-bar">
+        國破山河在、城春草木深。
+    </div>
+    <section id="about">
+        <h2>關於我</h2>
+        <div class="profile">
+            <!-- 可點擊的圖像 -->
+            <img src="myicon.png" alt="陳麗華的照片" class="profile-image clickable-icon" id="profileImage">
+            <div class="profile-info">
+                <div class="profile-name">
+                    <span class="name-chinese">陳麗華</span>
+                    <span class="name-english">Lily Chen Lai Wah</span>
+                </div>
+                <p>Misskist & Fedizen.<br>請來香港旅遊。沙田和青衣的酒店很便宜。</p>
+                <h3>我的角色與職務</h3>
+                <ul>
+                    <li>Ochaskey Moderator</li>
+                    <li>Etonern Administrator</li>
+                    <li>Nekomiya.net Dev</li>
+                    <li>RuMisukiy VP</li>
+                    <li>Reliwave P.S. Member</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section id="recommendations">
+        <h2>推薦</h2>
+        <p>歌手：<a href="https://www.youtube.com/watch?v=PpVNdL9Wz_M" target="_blank">葉麗儀 Frances Yip</a>
+        <br>喜歡的地區：彩虹邨 Choi Hung Estate</p>
+    </section>
+    <section id="link-traditional-chinese">
+        <div class="link-exchange">
+            <h2>互聯</h2>
+            <a href="https://rumi-room.net" target="_blank">
+                <img src="https://rumi-room.net/Asset/rumisan_room/BANNR.png" alt="橫幅廣告" style="max-width: 100%; height: auto;">
+            </a>
+        </div>
+    </section>
+    <script src="scripts.js"></script>
+</body>
+</html>
