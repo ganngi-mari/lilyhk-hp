@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", async function() {
     // ローディング画面を取得
     const loadingScreen = document.getElementById('loading-screen');
     const toggleDarkModeButton = document.getElementById('toggle-dark-mode');
@@ -31,13 +31,11 @@ document.addEventListener("DOMContentLoaded", function() {
         localStorage.setItem('theme', theme);
     });
 
-    // 2秒後にローディング画面をフェードアウト
-    setTimeout(function() {
-        loadingScreen.classList.add('fade-out');
-        loadingScreen.addEventListener('transitionend', () => {
-            loadingScreen.style.display = 'none';
-        }, { once: true });
-    }, 2000); // 2秒間表示
+	//言語関係
+	await LanguageSystem();
+
+	//ロード画面を殺す
+	ExitLoad();
 
     // ローディング画面の初期状態設定
     loadingScreen.style.display = 'flex';
@@ -55,3 +53,12 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 });
+
+function ExitLoad() {
+	const loadingScreen = document.getElementById('loading-screen');
+
+	loadingScreen.classList.add('fade-out');
+	loadingScreen.addEventListener('transitionend', () => {
+		loadingScreen.style.display = 'none';
+	}, { once: true });
+}
