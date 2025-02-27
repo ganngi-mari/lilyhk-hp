@@ -1,0 +1,272 @@
+/* 全体のスタイル */
+body {
+  margin: 0;
+  color: #333;
+}
+
+/* 言語ごとのフォント設定 */
+body[data-lang="ja"] {
+  font-family: 'Montserrat Alternates', 'Noto Sans JP', sans-serif; /* 日本語用フォント */
+}
+
+body[data-lang="en"] {
+  font-family: 'Montserrat Alternates', sans-serif; /* 英語用フォント */
+}
+
+body[data-lang="zh-HK"] {
+  font-family: 'Montserrat Alternates', 'Noto Sans HK', sans-serif; /* 繁体字中国語用フォント */
+}
+
+body[data-lang="zh-CN"] {
+  font-family: 'Montserrat Alternates', 'Noto Sans SC', sans-serif; /* 簡体字中国語用フォント */
+}
+
+body[data-lang="ru"],
+body[data-lang="kk"] {
+  font-family: 'Montserrat Alternates', 'Montserrat Alternates', sans-serif; /* ロシア語・カザフ語用フォント */
+}
+
+h1, h2, h3 {
+  font-weight: 700; /* 太字 */
+}
+
+p {
+  font-weight: 400; /* 標準の太さ */
+  line-height: 1.6; /* 行間を広げる */
+}
+
+/* 言語選択ドロップダウン */
+.language-selector {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+}
+
+#lang-dropdown-btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background: #4a00e0;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: transform 0.3s ease;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  overflow: hidden;
+  z-index: 1001;
+}
+
+.dropdown-content button {
+  width: 100%;
+  padding: 10px 20px;
+  text-align: left;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-content button:hover {
+  background-color: #f0f0f0;
+}
+
+.show-dropdown {
+  display: block;
+}
+
+/* ローディング画面 */
+.loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: white;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+  font-family: 'Montserrat Alternates', sans-serif; /* 英語用フォント */
+}
+
+.loader-text {
+  font-size: 3rem;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.progress-bar {
+  width: 50%;
+  height: 5px;
+  background: #fff;
+  animation: progressBar 3s linear forwards;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* シャドウ効果 */
+}
+
+.dots {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  animation: pulse 2s infinite;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5); /* シャドウ効果 */
+}
+
+/* トップページ */
+.hero {
+  text-align: center;
+  padding: 100px 20px;
+  background: linear-gradient(135deg, #8e2de2, #4a00e0);
+  color: white;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.hero h1 {
+  font-size: 4rem;
+}
+
+.hero p {
+  font-size: 1.5rem;
+}
+
+.cta-button {
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  background: #4a00e0;
+  color: white;
+  border: none;
+  cursor: pointer;
+  animation: floatButton 3s infinite alternate;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* シャドウ効果 */
+}
+
+.cta-button a {
+  color: white;
+  text-decoration: none;
+}
+
+.cta-button:hover {
+  transform: scale(1.1);
+}
+
+/* 会社概要・誕生経緯 */
+.about-us, .history {
+  padding: 50px;
+  background: linear-gradient(135deg, #f3e7e9, #e3eeff);
+  color: #333;
+  text-align: center;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.1); /* シャドウ効果 */
+}
+
+.about-us h2, .history h2 {
+  font-size: 3rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* テキストシャドウ */
+}
+
+.about-us ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.about-us li {
+  margin: 10px 0;
+  font-size: 1.2rem;
+}
+
+.about-us a {
+  color: #4a00e0;
+  text-decoration: none;
+}
+
+.about-us a:hover {
+  text-decoration: underline;
+}
+
+/* 特徴紹介セクション */
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  padding: 50px;
+  background: linear-gradient(135deg, #f3e7e9, #e3eeff);
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.1); /* シャドウ効果 */
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* シャドウ効果 */
+}
+
+.icon {
+  font-size: 3rem;
+  color: #4a00e0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* アイコンシャドウ */
+}
+
+/* CTAセクション */
+.cta-section {
+  text-align: center;
+  padding: 50px;
+  background: linear-gradient(135deg, #8e2de2, #4a00e0);
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3); /* シャドウ効果 */
+}
+
+.final-cta {
+  padding: 20px 40px;
+  font-size: 1.5rem;
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* シャドウ効果 */
+  font-family: 'Montserrat Alternates', sans-serif; /* 英語用フォント */
+}
+
+.final-cta a {
+  color: white;
+  text-decoration: none;
+}
+
+.final-cta:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4); /* ホバー時のシャドウ強化 */
+}
+
+/* アニメーション */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes progressBar {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.5; }
+}
+
+@keyframes floatButton {
+  from { transform: translateY(0); }
+  to { transform: translateY(-10px); }
+}

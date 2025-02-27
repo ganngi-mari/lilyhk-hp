@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Qwen - AIアシスタント</title>
+  <!-- Google Fontsの追加 -->
+  <!-- Google Fontsの追加 -->
+<!-- Google Fontsの追加 -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+HK:wght@400;700&family=Noto+Sans+SC:wght@400;700&family=Montserrat+Alternates:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+  <!-- 言語選択ドロップダウン -->
+  <div class="language-selector">
+    <button id="lang-dropdown-btn">🌐 選択する言語</button>
+    <div id="lang-dropdown" class="dropdown-content">
+      <button data-lang="ja">日本語</button>
+      <button data-lang="en">English</button>
+      <button data-lang="zh-HK">繁體中文</button>
+      <button data-lang="zh-CN">简体中文</button>
+      <button data-lang="ru">Русский</button>
+      <button data-lang="kk">Қазақша</button>
+    </div>
+  </div>
+
+  <!-- ローディング画面 -->
+  <div class="loader">
+    <div class="loader-text">Qwen</div>
+    <div class="progress-bar"></div>
+    <div class="dots"></div>
+  </div>
+
+  <!-- メインコンテンツ -->
+  <div id="main-content" style="display: none;">
+    <!-- トップページ -->
+    <section class="hero">
+      <h1 id="hero-title">Qwen - あなたのAIアシスタント</h1>
+      <p id="hero-subtitle">最新のAI技術であなたのアイデアをサポートします。</p>
+      <button class="cta-button"><a id="hero-cta" href="#about-us">詳しく見る</a></button>
+    </section>
+
+    <!-- 会社概要 -->
+    <section class="about-us" id="about-us" data-aos="fade-up">
+      <h2 id="about-us-title">会社概要</h2>
+      <ul id="about-us-list">
+        <!-- 動的に挿入される -->
+      </ul>
+    </section>
+
+    <!-- 誕生の経緯 -->
+    <section class="history" data-aos="fade-up">
+      <h2 id="history-title">Qwenの誕生経緯</h2>
+      <p id="history-description">Qwenは、Alibaba Cloudが開発した大規模な言語モデルです。自然言語処理技術を駆使し、人間らしい対話を実現するAIを目指して作られました。</p>
+    </section>
+
+    <!-- Qwenの特徴紹介 -->
+    <section class="features">
+      <h2 id="features-title">Qwenの特徴</h2>
+      <div class="feature-item" data-aos="fade-up">
+        <div class="icon">💬</div>
+        <div class="content">
+          <h3 id="feature-1-title">自然な会話能力</h3>
+          <p id="feature-1-description">高度な言語モデルにより、人間らしい自然な会話を実現。</p>
+        </div>
+      </div>
+      <div class="feature-item" data-aos="fade-up">
+        <div class="icon">🌐</div>
+        <div class="content">
+          <h3 id="feature-2-title">多言語対応</h3>
+          <p id="feature-2-description">世界中の言語に対応し、グローバルなコミュニケーションをサポート。</p>
+        </div>
+      </div>
+      <div class="feature-item" data-aos="fade-up">
+        <div class="icon">🛠️</div>
+        <div class="content">
+          <h3 id="feature-3-title">カスタマイズ性</h3>
+          <p id="feature-3-description">用途に応じて柔軟にカスタマイズ可能。</p>
+        </div>
+      </div>
+      <div class="feature-item" data-aos="fade-up">
+        <div class="icon">💡</div>
+        <div class="content">
+          <h3 id="feature-4-title">クリエイティブなアイデア生成</h3>
+          <p id="feature-4-description">新しいアイデアやコンセプトを提案する力があります。</p>
+        </div>
+      </div>
+      <div class="feature-item" data-aos="fade-up">
+        <div class="icon">📚</div>
+        <div class="content">
+          <h3 id="feature-5-title">膨大な知識データベース</h3>
+          <p id="feature-5-description">幅広い分野の知識を活用して質問に答えます。</p>
+        </div>
+      </div>
+      <div class="feature-item" data-aos="fade-up">
+        <div class="icon">⚡</div>
+        <div class="content">
+          <h3 id="feature-6-title">高速レスポンス</h3>
+          <p id="feature-6-description">瞬時に正確な回答を提供します。</p>
+        </div>
+      </div>
+      <div class="feature-item" data-aos="fade-up">
+        <div class="icon">🔒</div>
+        <div class="content">
+          <h3 id="feature-7-title">プライバシー保護</h3>
+          <p id="feature-7-description">ユーザーのプライバシーを最優先に考えています。</p>
+        </div>
+      </div>
+      <div class="feature-item" data-aos="fade-up">
+        <div class="icon">📈</div>
+        <div class="content">
+          <h3 id="feature-8-title">継続的な学習</h3>
+          <p id="feature-8-description">常に新しい情報を学び続け、成長します。</p>
+        </div>
+      </div>
+      <div class="feature-item" data-aos="fade-up">
+        <div class="icon">🤝</div>
+        <div class="content">
+          <h3 id="feature-9-title">協力的なパートナーシップ</h3>
+          <p id="feature-9-description">企業や個人と協力して価値を創造します。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTAボタン -->
+    <section class="cta-section">
+      <button class="final-cta"><a id="cta-link" href="https://chat.qwenlm.ai" target="_blank">今すぐQwenを試す！</a></button>
+    </section>
+  </div>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
