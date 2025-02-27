@@ -230,14 +230,31 @@ const translations = {
   }
 };
 
-// 初期言語設定
-let currentLang = navigator.language.startsWith("ja") ? "ja" :
-                  navigator.language.startsWith("zh-HK") ? "zh-HK" :
-                  navigator.language.startsWith("zh-CN") ? "zh-CN" :
-                  navigator.language.startsWith("ru") ? "ru" :
-                  navigator.language.startsWith("kk") ? "kk" : "en";
 
-// 言語切り替え関数（更新部分）
+// URLパラメータから言語を取得
+function getLanguageFromURL() {
+  const params = new URLSearchParams(window.location.search);
+  const lang = params.get("lang");
+  console.log(`[DEBUG] URLから取得した言語: ${lang}`); // デバッグ用ログ
+  return lang && translations[lang] ? lang : null; // サポートされている言語か確認
+}
+
+// 初期言語設定
+let currentLang;
+const urlLang = getLanguageFromURL(); // URLから言語を取得
+if (urlLang) {
+  currentLang = urlLang; // URLパラメータがあればそれを優先
+} else {
+  // URLパラメータがない場合はブラウザの言語設定を使用
+  currentLang = navigator.language.startsWith("ja") ? "ja" :
+                navigator.language.startsWith("zh-HK") ? "zh-HK" :
+                navigator.language.startsWith("zh-CN") ? "zh-CN" :
+                navigator.language.startsWith("ru") ? "ru" :
+                navigator.language.startsWith("kk") ? "kk" : "en";
+}
+console.log(`[DEBUG] 初期言語設定: ${currentLang}`); // デバッグ用ログ
+
+// 言語切り替え関数
 function updateLanguage(lang) {
   currentLang = lang;
 
@@ -272,25 +289,22 @@ function updateLanguage(lang) {
   document.getElementById("feature-9-title").textContent = translations[lang].feature9Title;
   document.getElementById("feature-9-description").textContent = translations[lang].feature9Description;
   document.getElementById("cta-link").textContent = translations[lang].ctaLink;
+
+  // URLパラメータを更新
+  updateURLParameter(lang);
 }
 
-// 言語選択ドロップダウンのイベントリスナー
-document.getElementById("lang-dropdown-btn").addEventListener("click", () => {
-  const dropdown = document.getElementById("lang-dropdown");
-  dropdown.classList.toggle("show-dropdown");
-});
-
-document.querySelectorAll("#lang-dropdown button").forEach(button => {
-  button.addEventListener("click", () => {
-    const lang = button.getAttribute("data-lang");
-    updateLanguage(lang);
-    document.getElementById("lang-dropdown").classList.remove("show-dropdown");
-    document.getElementById("lang-dropdown-btn").textContent = `🌐 ${button.textContent}`;
-  });
-});
+// URLパラメータを更新する関数
+function updateURLParameter(lang) {
+  const url = new URL(window.location.href);
+  url.searchParams.set("lang", lang);
+  window.history.replaceState({}, "", url); // URLを更新
+  console.log(`[DEBUG] URLパラメータを更新しました: ${url}`); // デバッグ用ログ
+}
 
 // ローディング画面の処理
 window.addEventListener('load', () => {
+  console.log("[DEBUG] ページが完全に読み込まれました"); // デバッグ用ログ
   const loader = document.querySelector('.loader');
   const mainContent = document.getElementById('main-content');
 
@@ -305,4 +319,19 @@ window.addEventListener('load', () => {
     // 初期言語設定を適用
     updateLanguage(currentLang);
   }, 3000); // 3秒後にローディング終了
+});
+
+// 言語選択ドロップダウンのイベントリスナー
+document.getElementById("lang-dropdown-btn").addEventListener("click", () => {
+  const dropdown = document.getElementById("lang-dropdown");
+  dropdown.classList.toggle("show-dropdown");
+});
+
+document.querySelectorAll("#lang-dropdown button").forEach(button => {
+  button.addEventListener("click", () => {
+    const lang = button.getAttribute("data-lang");
+    updateLanguage(lang);
+    document.getElementById("lang-dropdown").classList.remove("show-dropdown");
+    document.getElementById("lang-dropdown-btn").textContent = `🌐 ${button.textContent}`;
+  });
 });
