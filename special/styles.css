@@ -1,0 +1,157 @@
+/* 全体のスタイル */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .container {
+    text-align: center;
+  }
+  
+  /* タイトル */
+  .title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 2s ease-in-out;
+  }
+  
+  /* お知らせ（島） */
+  .announcement-island {
+    position: relative;
+    width: 500px;
+    height: 150px;
+    margin: 30px auto 0;
+    background: rgba(144, 238, 144, 0.6);
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: float 4s infinite ease-in-out;
+  }
+  
+  .announcement-title {
+    font-size: 2rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .announcement-title span {
+    font-size: 2.5rem;
+  }
+  
+  .announcement-content {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+  
+  .announcement-content a {
+    color: #fff;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+  }
+  
+  .announcement-content a:hover {
+    color: #ffcc00;
+  }
+  
+  /* メニュー（島のようなデザイン） */
+  .menu-island {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 25px auto 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: float 3s infinite ease-in-out;
+    right: 25%;
+  }
+  
+  /* 新しい島（円形） */
+  .new-links-island {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    margin: 15px auto 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column; /* ボタンを縦に並べる */
+    justify-content: center; /* 中央揃え */
+    align-items: center; /* 中央揃え */
+    animation: float 4s infinite ease-in-out;
+    left: 25%;
+  }
+  
+  .new-links-island .menu-button {
+    margin: 5px 0; /* ボタン同士の間隔を狭く */
+  }
+  
+  .menu-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background: #ff6f61;
+    border-radius: 30px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, background 0.3s ease;
+  }
+  
+  .menu-button:hover {
+    background: #ff4d4d;
+    transform: scale(1.1);
+  }
+  
+  .menu-button span {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  /* アニメーション */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
