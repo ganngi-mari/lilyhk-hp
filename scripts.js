@@ -1,57 +1,113 @@
-document.addEventListener("DOMContentLoaded", function() {
-    // ローディング画面を取得
-    const loadingScreen = document.getElementById('loading-screen');
-    const toggleDarkModeButton = document.getElementById('toggle-dark-mode');
-    const profileImage = document.getElementById('profileImage');
-
-    // 初期画像設定
-    let currentImage = '../myicon.png';
-    const alternateImage = '../myicon2.jpg';
-
-    // プロフィール画像をクリック時に画像を切り替える
-    profileImage.addEventListener('click', function() {
-        currentImage = currentImage === '../myicon.png' ? alternateImage : '../myicon.png';
-        profileImage.src = currentImage;
-    });
-
-    // ページ読み込み時にローカルストレージからテーマを復元
-    const currentTheme = localStorage.getItem('theme') || 'light';
-    if (currentTheme === 'dark') {
-        document.body.classList.add('dark-mode');
-        applyLoadingScreenStyles(true); // ダークモード用のスタイルを適用
-    } else {
-        applyLoadingScreenStyles(false); // ライトモード用のスタイルを適用
+document.addEventListener("DOMContentLoaded", function () {
+    // ヘルパー関数：ローカルストレージからテーマを取得
+    function getThemeFromLocalStorage() {
+        return localStorage.getItem('theme') || 'light';
     }
 
-    // ダークモードの切り替えイベントリスナーを追加
-    toggleDarkModeButton.addEventListener('click', function() {
-        const isDarkMode = document.body.classList.toggle('dark-mode');
-        applyLoadingScreenStyles(isDarkMode); // ダークモード/ライトモードに応じたスタイルを適用
-        const theme = isDarkMode ? 'dark' : 'light';
-        localStorage.setItem('theme', theme);
-    });
+    // プロフィール画像の切り替え
+    function setupProfileImageToggle() {
+        const profileImage = document.getElementById('profileImage');
+        if (!profileImage) {
+            console.error('プロフィール画像が見つかりません。');
+            return;
+        }
 
-    // 2秒後にローディング画面をフェードアウト
-    setTimeout(function() {
-        loadingScreen.classList.add('fade-out');
-        loadingScreen.addEventListener('transitionend', () => {
-            loadingScreen.style.display = 'none';
-        }, { once: true });
-    }, 2000); // 2秒間表示
+        const imagePaths = {
+            default: '../myicon.png',
+            alternate: '../myicon2.jpg'
+        };
 
-    // ローディング画面の初期状態設定
-    loadingScreen.style.display = 'flex';
+        let currentImage = imagePaths.default;
 
-    // ダークモード/ライトモードに応じたローディング画面のスタイルを適用する関数
+        profileImage.addEventListener('click', function () {
+            currentImage = currentImage === imagePaths.default ? imagePaths.alternate : imagePaths.default;
+            profileImage.src = currentImage;
+            console.log(`プロフィール画像を切り替えました: ${currentImage}`); // ログ出力
+        });
+    }
+
+    // ダークモードの切り替え
+    function setupDarkModeToggle() {
+        const toggleDarkModeButton = document.getElementById('toggle-dark-mode');
+        if (!toggleDarkModeButton) {
+            console.error('ダークモードボタンが見つかりません。');
+            return;
+        }
+
+        toggleDarkModeButton.addEventListener('click', function () {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            applyLoadingScreenStyles(isDarkMode);
+            const theme = isDarkMode ? 'dark' : 'light';
+            localStorage.setItem('theme', theme);
+            console.log(`ダークモードを切り替えました: ${theme}`); // ログ出力
+        });
+    }
+
+    // ローディング画面のセットアップ
+    function setupLoadingScreen() {
+        const loadingScreen = document.getElementById('loading-screen');
+        if (!loadingScreen) {
+            console.error('ローディング画面が見つかりません。');
+            return;
+        }
+
+        setTimeout(function () {
+            loadingScreen.classList.add('fade-out');
+            const transitionEndHandler = () => {
+                loadingScreen.style.display = 'none';
+                loadingScreen.removeEventListener('transitionend', transitionEndHandler);
+                console.log('ローディング画面を非表示にしました。'); // ログ出力
+            };
+            loadingScreen.addEventListener('transitionend', transitionEndHandler);
+
+            // タイムアウトを設定
+            setTimeout(() => {
+                loadingScreen.style.display = 'none';
+            }, 3000); // 最大3秒後に強制的に非表示
+        }, 2000);
+
+        loadingScreen.style.display = 'flex';
+        console.log('ローディング画面を表示しました。'); // ログ出力
+    }
+
+    // ローディング画面のスタイルを適用
     function applyLoadingScreenStyles(isDark) {
-        if (isDark) {
-            loadingScreen.style.backgroundColor = '#333';
-            loadingScreen.querySelector('.spinner').style.borderTopColor = '#ff6666';
-            loadingScreen.querySelector('p').style.color = '#e0e0e0';
+        const loadingScreen = document.getElementById('loading-screen');
+        if (!loadingScreen) return;
+
+        loadingScreen.classList.toggle('loading-screen-dark', isDark);
+        loadingScreen.classList.toggle('loading-screen-light', !isDark);
+        console.log(`ローディング画面のスタイルを適用しました: ${isDark ? 'ダークモード' : 'ライトモード'}`); // ログ出力
+    }
+
+    // 言語メニューの展開/折りたたみを制御
+    function setupLanguageMenuToggle() {
+        const languageToggleButton = document.getElementById("language-toggle-button");
+        const languageMenu = document.getElementById("language-menu");
+
+        if (languageToggleButton && languageMenu) {
+            languageToggleButton.addEventListener("click", () => {
+                const isOpen = languageMenu.classList.toggle("open");
+                console.log(`言語メニューを${isOpen ? '展開' : '折りたたみ'}ました。`); // ログ出力
+            });
         } else {
-            loadingScreen.style.backgroundColor = '#fffdd0';
-            loadingScreen.querySelector('.spinner').style.borderTopColor = '#cc0000';
-            loadingScreen.querySelector('p').style.color = '#333';
+            console.error("言語切り替えボタンまたはメニューが見つかりません。");
         }
     }
+
+    // 初期化処理
+    const currentTheme = getThemeFromLocalStorage();
+    if (currentTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+        applyLoadingScreenStyles(true);
+        console.log('初期化: ダークモードを有効にしました。'); // ログ出力
+    } else {
+        applyLoadingScreenStyles(false);
+        console.log('初期化: ライトモードを有効にしました。'); // ログ出力
+    }
+
+    setupProfileImageToggle();
+    setupDarkModeToggle();
+    setupLoadingScreen();
+    setupLanguageMenuToggle(); // 言語メニューの初期化を追加
 });

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>陳麗華 Lily Chen</title>
     <!-- Google Fonts: Noto Serif HK, Noto Sans HK, and LXGW WenKai TC Light -->
     <link
@@ -16,90 +16,113 @@
 
 <body>
     <!-- ローディング画面 -->
-    <div id="loading-screen" class="full-screen-loading">
+    <div id="loading-screen" class="full-screen-loading" aria-live="polite">
         <div class="spinner"></div>
-        <p>加載中...</p>
+        <p data-i18n="loading">加載中...</p>
     </div>
 
-    <!-- 深色模式切换按钮 -->
-    <button id="toggle-dark-mode" class="floating-button">🌙</button>
+    <!-- フローティングボタンコンテナ -->
+    <div id="floating-buttons" class="floating-buttons-container">
+        <!-- 言語切り替えボタン -->
+        <div id="language-switcher" class="floating-language-switcher">
+            <button id="language-toggle-button" class="floating-button">🌐</button>
+            <div id="language-menu" class="language-menu">
+                <button onclick="changeLanguage('zh-hant')">繁體中文</button>
+                <button onclick="changeLanguage('zh-hans')">简体中文</button>
+                <button onclick="changeLanguage('ja')">日本語</button>
+                <button onclick="changeLanguage('en')">English</button>
+                <button onclick="changeLanguage('ru')">Русский</button>
+                <button onclick="changeLanguage('kk')">Қазақша</button>
+            </div>
+        </div>
+
+        <!-- 深色模式切换按钮 -->
+        <button id="toggle-dark-mode" class="floating-button" aria-label="ダークモードを切り替えます">🌙</button>
+    </div>
 
     <!-- 主要内容 -->
     <header>
-        <h1>歡迎來到我的個人空間</h1>
-        <p>我是陳麗華（Lily Chen），來自遼寧省丹東市，目前居住在香港荔枝角。</p>
+        <h1 data-i18n="welcome">歡迎來到我的個人空間</h1>
+        <p data-i18n="introduction">我是陳麗華（Lily Chen），來自遼寧省丹東市，目前居住在香港荔枝角。</p>
     </header>
-    <div class="poem-bar">
-        國破山河在、城春草木深。
-    </div>
-    <section id="about">
-        <h2>關於我</h2>
+    <div class="poem-bar" data-i18n="poem">國破山河在、城春草木深。</div>
+    <section id="about" aria-labelledby="about-heading">
+        <h2 id="about-heading" data-i18n="about">關於我</h2>
         <div class="profile">
-            <img src="myicon.png" alt="陳麗華的照片" class="profile-image clickable-icon" id="profileImage">
+            <img src="myicon.png" alt="陳麗華的照片" class="profile-image clickable-icon responsive-image" id="profileImage">
             <div class="profile-info">
                 <div class="profile-name">
                     <span class="name-chinese">陳麗華</span>
-                    <span class="name-english">Lily Chen Lai Wah</span>
+                    <span class="name-english" data-i18n="name_en">Lily Chen Lai Wah</span>
                 </div>
-                <p>Misskist & Fedizen.<br>請來香港旅遊。沙田和青衣的酒店很便宜。</p>
-                <h3>我的角色與職務</h3>
+                <p data-i18n="description">Misskist & Fedizen.<br>請來香港旅遊。沙田和青衣的酒店很便宜。</p>
+                <h3 data-i18n="roles">我的角色與職務</h3>
                 <ul>
-                    <li>Ochaskey Moderator</li>
-                    <li>Etonern Administrator</li>
-                    <li>Nekomiya.net Dev</li>
-                    <li>RuMisukiy VP</li>
-                    <li>Reliwave P.S. Member</li>
+                    <li data-i18n="role_1">Ochaskey Moderator</li>
+                    <li data-i18n="role_2">Etonern Administrator</li>
+                    <li data-i18n="role_3">Nekomiya.net Dev</li>
+                    <li data-i18n="role_4">RuMisukiy VP</li>
+                    <li data-i18n="role_5">Reliwave P.S. Member</li>
                 </ul>
             </div>
         </div>
     </section>
-    <section id="recommendations">
-        <h2>推薦</h2>
-        <p>歌手：<a href="https://www.youtube.com/watch?v=PpVNdL9Wz_M" target="_blank">葉麗儀 Frances Yip</a>
-            <br>喜歡的地區：彩虹邨 Choi Hung Estate
-        </p>
+    <section id="recommendations" aria-labelledby="recommendations-heading">
+        <h2 id="recommendations-heading" data-i18n="recommendations">推薦</h2>
+        <p data-i18n="recommendation_singer">歌手：<a href="https://www.youtube.com/watch?v=PpVNdL9Wz_M" target="_blank"
+                rel="noopener noreferrer">葉麗儀 Frances Yip</a><br>喜歡的地區：彩虹邨 Choi Hung Estate</p>
     </section>
-    <section id="contact">
-        <h2>聯繫方式</h2>
-        <p>Misskey: <a href="https://ussr.rumiserver.com/@pochta_rossii"
-                rel="me">@pochta_rossii@ussr.rumiserver.com</a><br>Gotosocial: <a
-                href="https://sevenstar.etnfed.ru/@lily_hk" rel="me">@lily_hk@sevenstar.etnfed.ru</a><br>Email: <a
-                href="mailto:lily.hkmliktea@etnfed.ru" rel="me">lily.hkmilktea@etnfed.ru</a></p>
+    <section id="contact" aria-labelledby="contact-heading">
+        <h2 id="contact-heading" data-i18n="contact">聯繫方式</h2>
+        <p data-i18n="contact_misskey">Misskey: <a href="https://ussr.rumiserver.com/@pochta_rossii" target="_blank"
+                rel="noopener noreferrer">@pochta_rossii@ussr.rumiserver.com</a><br>Gotosocial: <a
+                href="https://sevenstar.etnfed.ru/@lily_hk" target="_blank"
+                rel="noopener noreferrer">@lily_hk@sevenstar.etnfed.ru</a><br>Email: <a
+                href="mailto:lily.hkmilktea@etnfed.ru" target="_blank"
+                rel="noopener noreferrer">lily.hkmilktea@etnfed.ru</a></p>
     </section>
     <!-- 顯示橫幅的區段 -->
-    <section id="banner">
+    <section id="banner" aria-labelledby="banner-heading">
         <div class="banner-content">
-            <h2>Banner</h2>
-            <a href="https://lilyhk.static.jp" target="_blank">
-                <img src="images/banner.jpg" alt="橫幅圖片" style="max-width: 100%; height: auto;">
+            <h2 id="banner-heading" data-i18n="banner">Banner</h2>
+            <a href="http://lilyhk.y.ribbon.to" target="_blank" rel="noopener noreferrer">
+                <img src="images/banner.jpg" alt="橫幅圖片" class="responsive-image">
             </a>
-            <p>請保存並使用此橫幅。鏈接指向：<a href="https://lilyhk.static.jp"
-                    target="_blank">https://lilyhk.static.jp</a>。</p>
+            <p data-i18n="banner_description">請保存並使用此橫幅。鏈接指向：<a href="http://lilyhk.y.ribbon.to" target="_blank"
+                    rel="noopener noreferrer">http://lilyhk.y.ribbon.to</a>。</p>
         </div>
     </section>
-    <section id="link-japanese">
+    <section id="link-japanese" aria-labelledby="link-japanese-heading">
         <div class="link-exchange">
-            <h2>互聯</h2>
-            <a href="https://rumi-room.net" target="_blank">
-                <img src="https://rumi-room.net/Asset/rumisan_room/BANNR.png" alt="相互連結橫幅"
-                    style="max-width: 100%; height: auto;">
+            <h2 id="link-japanese-heading" data-i18n="exchange">互聯</h2>
+            <a href="https://rumi-room.net" target="_blank" rel="noopener noreferrer">
+                <img src="https://rumi-room.net/Asset/rumisan_room/BANNR.png" alt="相互連結橫幅" class="responsive-image">
             </a>
         </div>
     </section>
     <footer>
-        <p>© 2025 陳麗華 (Lily Chen) 版权所有</p>
-        <p>這個網站是使用<a href="https://tongyi.ai" target="_blank" id="tongyi">通義</a>、<a href="https://deepseek.com" target="_blank" id="tongyi">Deepseek</a>和<a href="https://felo.ai" target="_blank" id="tongyi">Felo</a>製作的。</p>
+        <p data-i18n="tools">這個網站是使用<a href="https://tongyi.ai" target="_blank" rel="noopener noreferrer"
+                class="tool-link highlight-tool">通義</a>、<a href="https://deepseek.com" target="_blank"
+                rel="noopener noreferrer" class="tool-link highlight-tool">Deepseek</a>和<a href="https://felo.ai"
+                target="_blank" rel="noopener noreferrer" class="tool-link highlight-tool">Felo</a>製作的。</p>
         <div class="social-icons">
-            <a href="https://ussr.rumiserver.com/@pochta_rossii" target="_blank"><i class="fab fa-mastodon"></i></a>
-            <a href="mailto:lily.hkmilktea@etnfed.ru" target="_blank"><i class="fas fa-envelope"></i></a>
-        </div>
-        <div class="language-switcher">
-            <a href="simp/index.html">简体中文</a> |
-            <a href="en/index.html">English</a> |
-            <a href="ja/index.html">日本語</a>
+            <a href="https://ussr.rumiserver.com/@pochta_rossii" target="_blank" rel="noopener noreferrer"
+                title="Misskeyプロフィール">
+                <i class="fab fa-mastodon"></i>
+            </a>
+            <a href="mailto:lily.hkmilktea@etnfed.ru" target="_blank" rel="noopener noreferrer" title="メールで連絡">
+                <i class="fas fa-envelope"></i>
+            </a>
+            <!-- 新しいリンクボタン -->
+            <div class="footer-button">
+                <a href="https://lilyhk.static.jp" target="_blank" rel="noopener noreferrer"
+                    class="button-link">陳麗華の實驗室</a>
+            </div>
+            <p data-i18n="copyright">© 2025 陳麗華 (Lily Chen) 版权所有</p>
         </div>
     </footer>
     <script src="scripts.js"></script>
+    <script src="i18n.js"></script>
 </body>
 
 </html>

@@ -1,18 +1,26 @@
 /* 基本スタイル */
+:root {
+    --primary-color: #cc0000;
+    --secondary-color: #ff6666;
+    --text-color: #333;
+    --dark-bg: #1a1a1a;
+    --dark-text: #e0e0e0;
+}
+
 body {
     font-family: 'Noto Sans HK', Arial, sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
     background-color: #fff5e6;
-    color: #333;
+    color: var(--text-color);
     scroll-behavior: smooth;
     transition: background-color 0.3s, color 0.3s;
 }
 
 body.dark-mode {
-    background-color: #1a1a1a;
-    color: #e0e0e0;
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
 }
 
 /* ヘッダー */
@@ -23,13 +31,13 @@ header {
     text-align: center;
     padding: 100px 20px;
     background-size: cover;
-    box-shadow: inset 0 -10px 10px rgba(0, 0, 0, 0.3);
-    font-family: 'Noto Serif HK', 'Microsoft JhengHei', Arial, sans-serif;
+    box-shadow: inset 0 -10px 10px rgba(0, 0, 0, 0.3), 0 10px 30px rgba(0, 0, 0, 0.2);
+    animation: fadeInDown 1s ease-in-out;
 }
 
 body.dark-mode header {
     background-color: #222;
-    color: #e0e0e0;
+    color: var(--dark-text);
 }
 
 header h1 {
@@ -45,14 +53,15 @@ header p {
 
 /* 詩の帯 */
 .poem-bar {
-    background-color: #cc0000;
+    background-color: var(--primary-color);
     color: white;
     text-align: left;
     padding: 10px 20px;
     font-size: 1.5em;
     font-family: 'LXGW WenKai TC', Arial, sans-serif;
     font-weight: normal;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.3);
+    animation: slideInLeft 1s ease-in-out;
 }
 
 body.dark-mode .poem-bar {
@@ -66,24 +75,25 @@ section {
     max-width: 800px;
     background: white;
     border-radius: 8px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1), 0 10px 30px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s, box-shadow 0.3s;
+    animation: fadeInUp 1s ease-in-out;
 }
 
 body.dark-mode section {
     background-color: #333;
-    color: #e0e0e0;
+    color: var(--dark-text);
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
 
 section h2 {
     margin-top: 0;
-    color: #cc0000;
+    color: var(--primary-color);
     font-weight: 700;
 }
 
 body.dark-mode section h2 {
-    color: #ff6666;
+    color: var(--secondary-color);
 }
 
 ul {
@@ -94,12 +104,12 @@ ul {
 h3 {
     margin-top: 20px;
     font-size: 1.2em;
-    color: #cc0000;
+    color: var(--primary-color);
     font-weight: 700;
 }
 
 body.dark-mode h3 {
-    color: #ff6666;
+    color: var(--secondary-color);
 }
 
 /* プロフィールセクション */
@@ -108,9 +118,9 @@ body.dark-mode h3 {
     align-items: center;
     justify-content: space-between;
     padding: 20px;
-    background: #ffffff;
+    background: white;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s, box-shadow 0.3s;
 }
 
@@ -124,13 +134,13 @@ body.dark-mode .profile {
     height: 150px;
     border-radius: 50%;
     object-fit: cover;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2), 0 10px 20px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .profile-image:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 20px rgba(255, 0, 255, 0.5), 0 0 40px rgba(0, 255, 255, 0.5);
+    box-shadow: 0 15px 30px rgba(255, 0, 255, 0.3), 0 10px 20px rgba(0, 255, 255, 0.3);
 }
 
 body.dark-mode .profile-image {
@@ -150,12 +160,12 @@ body.dark-mode .profile-image {
 
 .name-chinese {
     font-size: 2em;
-    color: #cc0000;
+    color: var(--primary-color);
     font-weight: 700;
 }
 
 body.dark-mode .name-chinese {
-    color: #ff6666;
+    color: var(--secondary-color);
 }
 
 .name-english {
@@ -174,7 +184,7 @@ body.dark-mode .name-english {
     max-width: 800px;
     background: white;
     border-radius: 8px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1), 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 body.dark-mode #banner {
@@ -186,29 +196,37 @@ body.dark-mode #banner {
     border: 1px solid #ccc;
     border-radius: 8px;
     margin-bottom: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.banner-content img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(255, 0, 255, 0.3), 0 10px 20px rgba(0, 255, 255, 0.3);
 }
 
 .banner-content p {
     font-size: 1em;
-    color: #333;
+    color: var(--text-color);
 }
 
 body.dark-mode .banner-content p {
-    color: #e0e0e0;
+    color: var(--dark-text);
 }
 
 /* フッター */
 footer {
     text-align: center;
     padding: 20px;
-    background: #cc0000;
+    background: var(--primary-color);
     color: white;
-    box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.2), 0 -10px 30px rgba(0, 0, 0, 0.2);
+    animation: fadeInUp 1s ease-in-out;
 }
 
 body.dark-mode footer {
     background: #444;
-    color: #e0e0e0;
+    color: var(--dark-text);
     box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.5);
 }
 
@@ -232,7 +250,7 @@ footer p {
 }
 
 body.dark-mode .social-icons a {
-    color: #e0e0e0;
+    color: var(--dark-text);
 }
 
 .language-switcher {
@@ -250,42 +268,112 @@ body.dark-mode .social-icons a {
     text-decoration: underline;
 }
 
-#tongyi {
+.highlight-tool {
     color: gold;
     font-weight: bold;
 }
 
-body.dark-mode #tongyi {
+body.dark-mode .highlight-tool {
     color: #ffd700;
 }
 
-#tongyi:hover {
+.highlight-tool:hover {
     text-decoration: underline;
 }
 
-/* 浮動ボタンのスタイル */
-.floating-button {
+/* フローティングボタンコンテナ */
+.floating-buttons-container {
     position: fixed;
     bottom: 20px;
     right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 15px; /* ボタン間の間隔 */
+    z-index: 1000;
+}
+
+/* 共通のフローティングボタンスタイル */
+.floating-button {
     padding: 10px 20px;
-    background-color: #cc0000;
+    background-color: var(--primary-color);
     color: white;
     border: none;
     border-radius: 50%;
     cursor: pointer;
     font-size: 1.5em;
-    z-index: 1000;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, background-color 0.3s;
 }
 
 .floating-button:hover {
     transform: scale(1.1);
 }
 
+/* 言語切り替えメニューのスタイル */
+.floating-language-switcher {
+    position: relative; /* 子要素（メニュー）を相対配置にする */
+}
+
+.language-menu {
+    position: absolute;
+    bottom: 120%; /* ボタンからさらに上に配置 */
+    right: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    opacity: 0;
+    transform: translateY(10px); /* 初期状態で少し下にずらす */
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background-color: var(--primary-color);
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 999;
+    padding: 10px; /* メニュー内の余白を追加 */
+    min-width: 120px; /* 横幅を確保 */
+    white-space: nowrap; /* 折り返しを防止 */
+}
+
+.language-menu.open {
+    max-height: 300px; /* 適切な高さに調整 */
+    opacity: 1;
+    transform: translateY(0); /* 上方向にアニメーション */
+}
+
+.language-menu button {
+    padding: 10px 15px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: transform 0.3s, background-color 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.3);
+    white-space: nowrap; /* ボタン内のテキストが折り返さないように */
+}
+
+.language-menu button:hover {
+    transform: scale(1.05);
+    background-color: var(--secondary-color);
+}
+
 body.dark-mode .floating-button {
     background-color: #b30000;
+}
+
+body.dark-mode .floating-button:hover {
+    background-color: #ff6666;
+}
+
+body.dark-mode .language-menu button {
+    background-color: #b30000;
+}
+
+body.dark-mode .language-menu button:hover {
+    background-color: #ff6666;
 }
 
 /* ローディング画面 */
@@ -305,32 +393,33 @@ body.dark-mode .floating-button {
     transition: opacity 0.5s ease-in-out;
 }
 
-.full-screen-loading.dark-mode {
+body.dark-mode .full-screen-loading {
     background: rgba(0, 0, 0, 0.9);
 }
 
 .full-screen-loading .spinner {
     border: 4px solid rgba(0, 0, 0, 0.1);
-    border-top: 4px solid #cc0000;
+    border-top: 4px solid var(--primary-color);
     border-radius: 50%;
     width: 50px;
     height: 50px;
-    animation: spin 1s linear infinite;
+    animation: spin 1s linear infinite, glow 2s ease-in-out infinite alternate;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
-.full-screen-loading.dark-mode .spinner {
-    border-top-color: #ff6666;
+body.dark-mode .full-screen-loading .spinner {
+    border-top-color: var(--secondary-color);
 }
 
 .full-screen-loading p {
     margin-top: 20px;
     font-size: 1.2em;
-    color: #333;
+    color: var(--text-color);
     font-weight: 500;
 }
 
-.full-screen-loading.dark-mode p {
-    color: #e0e0e0;
+body.dark-mode .full-screen-loading p {
+    color: var(--dark-text);
 }
 
 @keyframes spin {
@@ -338,8 +427,15 @@ body.dark-mode .floating-button {
     100% { transform: rotate(360deg); }
 }
 
+@keyframes glow {
+    0% { box-shadow: 0 0 20px rgba(255, 0, 255, 0.3); }
+    100% { box-shadow: 0 0 40px rgba(0, 255, 255, 0.5); }
+}
+
 .full-screen-loading.fade-out {
     opacity: 0;
+    pointer-events: none;
+    display: none;
 }
 
 /* アイコンの基本スタイル */
@@ -352,12 +448,7 @@ body.dark-mode .floating-button {
     transform: scale(0.9);
 }
 
-/* シャドウとアニメーションを追加 */
-header {
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    animation: fadeInDown 1s ease-in-out;
-}
-
+/* アニメーション */
 @keyframes fadeInDown {
     0% {
         opacity: 0;
@@ -367,11 +458,6 @@ header {
         opacity: 1;
         transform: translateY(0);
     }
-}
-
-.poem-bar {
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    animation: slideInLeft 1s ease-in-out;
 }
 
 @keyframes slideInLeft {
@@ -385,11 +471,6 @@ header {
     }
 }
 
-section {
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    animation: fadeInUp 1s ease-in-out;
-}
-
 @keyframes fadeInUp {
     0% {
         opacity: 0;
@@ -399,36 +480,6 @@ section {
         opacity: 1;
         transform: translateY(0);
     }
-}
-
-.profile-image {
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-.profile-image:hover {
-    transform: scale(1.1);
-    box-shadow: 0 15px 30px rgba(255, 0, 255, 0.3), 0 10px 20px rgba(0, 255, 255, 0.3);
-}
-
-#banner img {
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-#banner img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 15px 30px rgba(255, 0, 255, 0.3), 0 10px 20px rgba(0, 255, 255, 0.3);
-}
-
-footer {
-    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.2);
-    animation: fadeInUp 1s ease-in-out;
-}
-
-.floating-button {
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    animation: fadeInRight 1s ease-in-out;
 }
 
 @keyframes fadeInRight {
@@ -442,29 +493,45 @@ footer {
     }
 }
 
-/* ローディング画面のアニメーション */
-.full-screen-loading .spinner {
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    animation: spin 1s linear infinite, glow 2s ease-in-out infinite alternate;
-}
-
-@keyframes glow {
-    0% {
-        box-shadow: 0 0 20px rgba(255, 0, 255, 0.3);
-    }
-    100% {
-        box-shadow: 0 0 40px rgba(0, 255, 255, 0.5);
-    }
-}
-
 /* 互聯バナーのスタイル */
 .link-exchange img {
     border-radius: 8px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .link-exchange img:hover {
     transform: scale(1.05);
     box-shadow: 0 15px 30px rgba(255, 0, 255, 0.3), 0 10px 20px rgba(0, 255, 255, 0.3);
+}
+
+/* フッターボタンのスタイル */
+.footer-button {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.button-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.button-link:hover {
+    background-color: var(--secondary-color);
+    transform: scale(1.05);
+}
+
+body.dark-mode .button-link {
+    background-color: #b30000;
+}
+
+body.dark-mode .button-link:hover {
+    background-color: #ff6666;
 }
