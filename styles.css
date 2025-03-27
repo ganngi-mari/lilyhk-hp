@@ -1,4 +1,12 @@
 /* 基本スタイル */
+/* ビューポートと基本要素のリセット */
+html, body {
+    width: 100%;
+    overflow-x: hidden; /* 横スクロールを防止 */
+    margin: 0;
+    padding: 0;
+}
+
 :root {
     --primary-color: #cc0000;
     --secondary-color: #ff6666;
@@ -32,34 +40,21 @@ body.dark-mode {
     color: var(--dark-text);
 }
 
-/* ヘッダー（画面幅いっぱい） */
+/* ヘッダー完全フル幅修正版 */
 header {
     position: relative;
     background: url('kowloontong.jpg') no-repeat center center/cover;
     color: white;
     text-align: center;
-    padding: 120px 20px 70px;
-    width: 100%;
-    background-size: cover;
-    box-shadow: inset 0 -15px 20px rgba(0, 0, 0, 0.4);
+    padding: 120px 20px 80px;
+    width: 100vw;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: inset 0 -10px 20px rgba(0, 0, 0, 0.4);
     animation: fadeInDown 1s ease-in-out;
-  }
-
-@media (max-width: 768px) {
-    header {
-        padding: 80px 20px;
-        width: calc(100% - 30px);
-        margin-bottom: 15px;
-    }
+    box-sizing: border-box;
 }
 
-@media (max-width: 480px) {
-    header {
-        padding: 60px 15px;
-        width: calc(100% - 20px);
-        margin-bottom: 10px;
-    }
-}
 
 body.dark-mode header {
     background-color: #222;
@@ -97,37 +92,54 @@ header p {
     }
 }
 
-/* 詩のバー（ヘッダーと密着・左揃え） */
+/* 詩のバー完全フル幅修正版 */
 .poem-bar {
     background-color: var(--primary-color);
     color: white;
     text-align: left;
-    padding: 15px 25px;
-    width: 100%;
+    padding: 15px calc((100vw - 100%) / 2 + 20px); /* スクロールバー分を考慮 */
+    width: 100vw;
+    left: 50%;
+    transform: translateX(-50%);
     font-size: 1.5em;
     font-family: 'LXGW WenKai TC', Arial, sans-serif;
-    font-weight: normal;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     margin-top: -1px;
-    line-height: 1.4;
-  }
+    position: relative;
+    box-sizing: border-box;
+    white-space: nowrap;
+    overflow-x: hidden;
+}
 
 
 @media (max-width: 768px) {
+    header {
+        padding: 100px 15px 60px;
+    }
+    
     .poem-bar {
+        padding: 12px calc((100vw - 100%) / 2 + 15px);
         font-size: 1.3em;
-        padding: 10px 15px;
+        white-space: normal;
+    }
+    
+    section {
         width: calc(100% - 30px);
-        margin-bottom: 15px;
     }
 }
 
 @media (max-width: 480px) {
+    header {
+        padding: 80px 10px 50px;
+    }
+    
     .poem-bar {
-        font-size: 1.2em;
-        padding: 8px 10px;
+        padding: 10px calc((100vw - 100%) / 2 + 10px);
+        font-size: 1.1em;
+    }
+    
+    section {
         width: calc(100% - 20px);
-        margin-bottom: 10px;
     }
 }
 
