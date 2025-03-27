@@ -1,157 +1,589 @@
-/* 全体のスタイル */
+/* あなたらしい可愛いデザイン - 完全版 */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  background: linear-gradient(135deg, #ffb8b8, #ffdfd3);
+  color: #5d3a3a;
+  min-height: 100vh;
+  padding: 20px;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ふんわり背景エフェクト */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(255,184,184,0.4) 0%, transparent 25%),
+    radial-gradient(circle at 80% 70%, rgba(255,223,211,0.4) 0%, transparent 25%);
+  animation: gentleMove 25s infinite alternate ease-in-out;
+  z-index: -1;
+}
+
+@keyframes gentleMove {
+  0% { transform: translate(-10px, -10px); }
+  50% { transform: translate(5px, 5px); }
+  100% { transform: translate(10px, 10px); }
+}
+
+.container {
+  display: grid;
+  grid-template-areas:
+    "title title"
+    "announcement links"
+    "menu contact";
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+}
+
+/* タイトル - もっと可愛く */
+.title {
+  grid-area: title;
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(2.2rem, 9vw, 3.8rem);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  animation: 
+    fadeIn 1.5s ease-out,
+    gentleSway 8s infinite ease-in-out;
+  text-align: center;
+  margin: 0 auto 30px;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 15px 30px;
+  border-radius: 50px;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transform-style: preserve-3d;
+}
+
+@keyframes gentleSway {
+  0%, 100% { transform: rotate(-0.5deg); }
+  50% { transform: rotate(0.5deg); }
+}
+
+/* お知らせ島 - ふんわり感アップ */
+.announcement-island {
+  grid-area: announcement;
+  width: min(420px, 90%);
+  min-height: 150px;
+  background: rgba(200, 255, 200, 0.65);
+  border-radius: 25px;
+  box-shadow: 0 8px 20px rgba(146, 104, 104, 0.15);
+  padding: 20px;
+  animation: 
+    float 6s infinite ease-in-out,
+    colorShift 10s infinite alternate;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  transform: rotate(-1.5deg);
+  margin: 0 auto;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.announcement-island:hover {
+  transform: rotate(-1deg) scale(1.02);
+}
+
+.announcement-island::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.1) 50%,
+    rgba(255,255,255,0) 100%
+  );
+  animation: shine 4s infinite;
+}
+
+@keyframes shine {
+  0% { transform: translate(-100%, -100%) rotate(30deg); }
+  100% { transform: translate(100%, 100%) rotate(30deg); }
+}
+
+.announcement-title {
+  font-size: clamp(1.4rem, 5vw, 1.8rem);
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  color: #4a6b4a;
+  position: relative;
+}
+
+.announcement-title span {
+  font-size: clamp(1.6rem, 6vw, 2.2rem);
+  animation: bounce 2s infinite, twist 4s infinite ease-in-out;
+}
+
+@keyframes twist {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(5deg); }
+  75% { transform: rotate(-5deg); }
+}
+
+.announcement-content {
+  font-size: clamp(1rem, 3.5vw, 1.1rem);
+  text-align: center;
+  line-height: 1.5;
+  position: relative;
+}
+
+.announcement-content a {
+  color: #4a6b4a;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  transition: all 0.3s ease;
+  padding: 0 2px;
+}
+
+.announcement-content a::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #ff9a9e;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.announcement-content a:hover {
+  color: #ff6b6b;
+}
+
+.announcement-content a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* メニュー島 - もっとふんわり */
+.menu-island {
+  grid-area: menu;
+  width: min(160px, 40vw);
+  height: min(160px, 40vw);
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  box-shadow: 
+    0 8px 15px rgba(146, 104, 104, 0.15),
+    inset 0 4px 10px rgba(255, 255, 255, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: 
+    float 5s infinite ease-in-out,
+    gentlePulse 3s infinite alternate;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transform: rotate(2deg);
+  margin: 30px auto 0;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes gentlePulse {
+  0% { transform: scale(1) rotate(2deg); }
+  100% { transform: scale(1.05) rotate(2deg); }
+}
+
+.menu-island:hover {
+  transform: scale(1.05) rotate(3deg);
+}
+
+.menu-island::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border-radius: 50%;
+  border: 2px dashed rgba(255,255,255,0.2);
+  animation: rotate 20s linear infinite;
+}
+
+/* リンク島 - ふんわり回転 */
+.new-links-island {
+  grid-area: links;
+  width: min(200px, 45vw);
+  height: min(200px, 45vw);
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  box-shadow: 
+    0 8px 15px rgba(146, 104, 104, 0.15),
+    inset 0 4px 10px rgba(255, 255, 255, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  animation: 
+    float 7s infinite ease-in-out 0.5s,
+    gentleTwirl 15s infinite linear;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transform: rotate(3deg);
+  margin: 10px auto 0;
+  position: relative;
+}
+
+@keyframes gentleTwirl {
+  0% { transform: rotate(3deg); }
+  100% { transform: rotate(363deg); }
+}
+
+.new-links-island::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at center,
+    rgba(255,255,255,0.3) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  animation: pulseGlow 4s infinite alternate;
+}
+
+@keyframes pulseGlow {
+  0% { opacity: 0.3; }
+  100% { opacity: 0.6; }
+}
+
+/* 連絡先用の島 - 完璧な位置に */
+.contact-island {
+  grid-area: contact;
+  width: min(220px, 50vw);
+  min-height: 100px;
+  background: rgba(173, 216, 230, 0.7);
+  border-radius: 20px;
+  box-shadow: 
+    0 8px 15px rgba(146, 104, 104, 0.15),
+    inset 0 2px 5px rgba(255, 255, 255, 0.3);
+  padding: 15px;
+  animation: 
+    float 5s infinite ease-in-out 1s,
+    colorShift 8s infinite alternate;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  transform: rotate(-1deg);
+  margin: -20px auto 0;
+  position: relative;
+  right: -15px;
+  transition: all 0.4s ease;
+  overflow: hidden;
+}
+
+@keyframes colorShift {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(10deg); }
+}
+
+.contact-island:hover {
+  transform: rotate(-0.5deg) scale(1.03);
+}
+
+.contact-island::before {
+  content: "💌";
+  position: absolute;
+  font-size: 1.8rem;
+  opacity: 0.15;
+  right: 10px;
+  bottom: 5px;
+  animation: float 3s infinite ease-in-out 2s;
+}
+
+.contact-island::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.1) 50%,
+    rgba(255,255,255,0) 100%
+  );
+  animation: shine 5s infinite;
+}
+
+.contact-title {
+  font-size: clamp(1.1rem, 4vw, 1.5rem);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #3a5d5d;
+  position: relative;
+}
+
+.contact-title::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 2px;
+  background: rgba(255, 154, 158, 0.5);
+  border-radius: 2px;
+}
+
+.contact-content {
+  font-size: clamp(0.85rem, 3vw, 1rem);
+  text-align: center;
+}
+
+.email-link {
+  color: #3a5d5d;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+  font-weight: 500;
+}
+
+.email-link:hover {
+  background: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+  color: #ff6b6b;
+}
+
+.email-link::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,0.4),
+    transparent
+  );
+  transition: left 0.7s ease;
+}
+
+.email-link:hover::before {
+  left: 100%;
+}
+
+.email-link span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  position: relative;
+}
+
+/* ボタンスタイル - もっと可愛く */
+.menu-button {
+  display: inline-block;
+  padding: clamp(10px, 3vw, 14px) clamp(15px, 4vw, 22px);
+  background: #ff8a8a;
+  background: linear-gradient(135deg, #ff8a8a, #ff6b6b);
+  border-radius: 30px;
+  font-size: clamp(1rem, 4vw, 1.3rem);
+  font-weight: 600;
+  color: white;
+  text-decoration: none;
+  box-shadow: 
+    0 4px 8px rgba(210, 94, 94, 0.2),
+    inset 0 2px 4px rgba(255,255,255,0.2);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  margin: 6px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.menu-button:hover {
+  transform: scale(1.1) rotate(2deg);
+  box-shadow: 
+    0 6px 12px rgba(210, 94, 94, 0.3),
+    inset 0 3px 6px rgba(255,255,255,0.3);
+  background: linear-gradient(135deg, #ff7b7b, #ff5a5a);
+}
+
+.menu-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    transparent 0%,
+    rgba(255,255,255,0.3) 50%,
+    transparent 100%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+  z-index: -1;
+}
+
+.menu-button:hover::before {
+  transform: translateX(100%);
+}
+
+.menu-button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255,255,255,0.6);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  box-shadow: 
+    0 0 10px 5px rgba(255,255,255,0.4),
+    0 0 20px 10px rgba(255,255,255,0.2);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+}
+
+.menu-button:active::after {
+  transform: translate(-50%, -50%) scale(10);
+  opacity: 1;
+}
+
+.menu-button span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  z-index: 1;
+}
+
+/* キラキラエフェクト - もっと繊細に */
+.sparkle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #fff;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: sparkle 1.2s ease-out forwards;
+  box-shadow: 
+    0 0 8px 2px rgba(255, 255, 255, 0.8),
+    0 0 15px 5px rgba(255, 200, 200, 0.6);
+  z-index: 10;
+}
+
+@keyframes sparkle {
+  0% { 
+    opacity: 0; 
+    transform: scale(0.2) rotate(0deg); 
   }
-  
-  body {
-    font-family: 'Noto Sans TC', sans-serif;
-    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    overflow: hidden;
+  50% { 
+    opacity: 1; 
+    transform: scale(1) rotate(180deg); 
   }
-  
+  100% { 
+    opacity: 0; 
+    transform: scale(1.3) rotate(360deg); 
+  }
+}
+
+/* レスポンシブ調整 */
+@media (max-width: 768px) {
   .container {
-    text-align: center;
+    grid-template-areas:
+      "title"
+      "announcement"
+      "menu"
+      "links"
+      "contact";
+    grid-template-columns: 1fr;
+    gap: 15px;
+    max-width: 95%;
   }
   
-  /* タイトル */
   .title {
-    font-family: 'Poppins', sans-serif;
-    font-size: 3rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    animation: fadeIn 2s ease-in-out;
+    margin-bottom: 20px;
+    padding: 12px 20px;
   }
   
-  /* お知らせ（島） */
-  .announcement-island {
-    position: relative;
-    width: 500px;
-    height: 150px;
-    margin: 30px auto 0;
-    background: rgba(144, 238, 144, 0.6);
-    border-radius: 20px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    animation: float 4s infinite ease-in-out;
+  .announcement-island,
+  .menu-island,
+  .new-links-island,
+  .contact-island {
+    margin: 0 auto 15px !important;
+    transform: none !important;
+    right: auto !important;
+    width: min(90%, 350px);
   }
   
-  .announcement-title {
-    font-size: 2rem;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 10px;
-  }
-  
-  .announcement-title span {
-    font-size: 2.5rem;
-  }
-  
-  .announcement-content {
-    font-size: 1.2rem;
-    text-align: center;
-  }
-  
-  .announcement-content a {
-    color: #fff;
-    text-decoration: underline;
-    transition: color 0.3s ease;
-  }
-  
-  .announcement-content a:hover {
-    color: #ffcc00;
-  }
-  
-  /* メニュー（島のようなデザイン） */
-  .menu-island {
-    position: relative;
-    width: 200px;
-    height: 200px;
-    margin: 25px auto 0;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    animation: float 3s infinite ease-in-out;
-    right: 25%;
-  }
-  
-  /* 新しい島（円形） */
+  .menu-island,
   .new-links-island {
-    position: relative;
-    width: 250px;
-    height: 250px;
-    margin: 15px auto 0;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    display: flex;
-    flex-direction: column; /* ボタンを縦に並べる */
-    justify-content: center; /* 中央揃え */
-    align-items: center; /* 中央揃え */
-    animation: float 4s infinite ease-in-out;
-    left: 25%;
+    height: min(160px, 70vw);
+    margin-top: 10px !important;
   }
   
-  .new-links-island .menu-button {
-    margin: 5px 0; /* ボタン同士の間隔を狭く */
+  .contact-island {
+    margin-top: 5px !important;
+  }
+}
+
+/* タッチデバイス用の調整 */
+@media (hover: none) {
+  .menu-button:hover,
+  .email-link:hover,
+  .announcement-island:hover,
+  .contact-island:hover {
+    transform: none !important;
   }
   
-  .menu-button {
-    display: inline-block;
-    padding: 15px 30px;
-    background: #ff6f61;
-    border-radius: 30px;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #fff;
-    text-decoration: none;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, background 0.3s ease;
+  .menu-button:active,
+  .email-link:active {
+    transform: scale(0.96) !important;
   }
   
-  .menu-button:hover {
-    background: #ff4d4d;
-    transform: scale(1.1);
+  .menu-button:active::after {
+    transform: translate(-50%, -50%) scale(8);
+    opacity: 1;
   }
-  
-  .menu-button span {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  /* アニメーション */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  @keyframes float {
-    0%, 100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
-  }
+}
