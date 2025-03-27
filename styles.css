@@ -32,21 +32,18 @@ body.dark-mode {
     color: var(--dark-text);
 }
 
-/* ヘッダー */
+/* ヘッダー（画面幅いっぱい） */
 header {
     position: relative;
     background: url('kowloontong.jpg') no-repeat center center/cover;
     color: white;
     text-align: center;
-    padding: 100px 20px;
-    margin: 0 auto 20px;
-    width: calc(100% - 40px);
-    max-width: 1200px;
+    padding: 120px 20px 70px;
+    width: 100%;
     background-size: cover;
-    box-shadow: inset 0 -10px 10px rgba(0, 0, 0, 0.3), 0 10px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 -15px 20px rgba(0, 0, 0, 0.4);
     animation: fadeInDown 1s ease-in-out;
-    border-radius: 8px;
-}
+  }
 
 @media (max-width: 768px) {
     header {
@@ -100,22 +97,21 @@ header p {
     }
 }
 
-/* 詩の帯 */
+/* 詩のバー（ヘッダーと密着・左揃え） */
 .poem-bar {
     background-color: var(--primary-color);
     color: white;
-    text-align: center;
-    padding: 12px 20px;
-    margin: 0 auto 20px;
-    width: calc(100% - 40px);
-    max-width: 1200px;
+    text-align: left;
+    padding: 15px 25px;
+    width: 100%;
     font-size: 1.5em;
     font-family: 'LXGW WenKai TC', Arial, sans-serif;
     font-weight: normal;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.3);
-    animation: slideInLeft 1s ease-in-out;
-    border-radius: 8px;
-}
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    margin-top: -1px;
+    line-height: 1.4;
+  }
+
 
 @media (max-width: 768px) {
     .poem-bar {
@@ -139,18 +135,18 @@ body.dark-mode .poem-bar {
     background-color: #b30000;
 }
 
-/* セクション */
+/* メインコンテンツセクション */
 section {
     padding: 25px;
-    margin: 0 auto 20px;
+    margin: 30px auto;
     width: calc(100% - 40px);
     max-width: 800px;
     background: white;
     border-radius: 8px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1), 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     animation: fadeInUp 1s ease-in-out;
-}
+  }
+  
 
 @media (max-width: 768px) {
     section {
