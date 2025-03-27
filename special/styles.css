@@ -24,7 +24,7 @@
   }
   
   body {
-    font-family: 'Noto Sans TC', 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: 'Noto Sans HK', 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
     background: linear-gradient(135deg, var(--main-color), var(--sub-color));
     color: var(--text-color);
     min-height: 100vh;
