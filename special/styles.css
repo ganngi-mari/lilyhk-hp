@@ -1,589 +1,673 @@
-/* あなたらしい可愛いデザイン - 完全版 */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* =============================================
+   🌸 陳麗華の實驗室 スペシャルデザイン完全版 🌸
+   - 季節の魔法
+   - キラキラエフェクト
+   - ふんわりアニメーション
+   - 完全レスポンシブ
+   - 特別日サプライズ
+   ============================================= */
 
-body {
-  font-family: 'Noto Sans HK', sans-serif;
-  background: linear-gradient(135deg, #ffb8b8, #ffdfd3);
-  color: #5d3a3a;
-  min-height: 100vh;
-  padding: 20px;
-  overflow-x: hidden;
-  position: relative;
-}
-
-/* ふんわり背景エフェクト */
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: 
-    radial-gradient(circle at 20% 30%, rgba(255,184,184,0.4) 0%, transparent 25%),
-    radial-gradient(circle at 80% 70%, rgba(255,223,211,0.4) 0%, transparent 25%);
-  animation: gentleMove 25s infinite alternate ease-in-out;
-  z-index: -1;
-}
-
-@keyframes gentleMove {
-  0% { transform: translate(-10px, -10px); }
-  50% { transform: translate(5px, 5px); }
-  100% { transform: translate(10px, 10px); }
-}
-
-.container {
-  display: grid;
-  grid-template-areas:
-    "title title"
-    "announcement links"
-    "menu contact";
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 20px;
-  position: relative;
-}
-
-/* タイトル - もっと可愛く */
-.title {
-  grid-area: title;
-  font-family: 'Poppins', sans-serif;
-  font-size: clamp(2.2rem, 9vw, 3.8rem);
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-  animation: 
-    fadeIn 1.5s ease-out,
-    gentleSway 8s infinite ease-in-out;
-  text-align: center;
-  margin: 0 auto 30px;
-  color: #fff;
-  background: rgba(255, 255, 255, 0.2);
-  padding: 15px 30px;
-  border-radius: 50px;
-  backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  transform-style: preserve-3d;
-}
-
-@keyframes gentleSway {
-  0%, 100% { transform: rotate(-0.5deg); }
-  50% { transform: rotate(0.5deg); }
-}
-
-/* お知らせ島 - ふんわり感アップ */
-.announcement-island {
-  grid-area: announcement;
-  width: min(420px, 90%);
-  min-height: 150px;
-  background: rgba(200, 255, 200, 0.65);
-  border-radius: 25px;
-  box-shadow: 0 8px 20px rgba(146, 104, 104, 0.15);
-  padding: 20px;
-  animation: 
-    float 6s infinite ease-in-out,
-    colorShift 10s infinite alternate;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  transform: rotate(-1.5deg);
-  margin: 0 auto;
-  transition: all 0.4s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.announcement-island:hover {
-  transform: rotate(-1deg) scale(1.02);
-}
-
-.announcement-island::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(
-    to bottom right,
-    rgba(255,255,255,0) 0%,
-    rgba(255,255,255,0.1) 50%,
-    rgba(255,255,255,0) 100%
-  );
-  animation: shine 4s infinite;
-}
-
-@keyframes shine {
-  0% { transform: translate(-100%, -100%) rotate(30deg); }
-  100% { transform: translate(100%, 100%) rotate(30deg); }
-}
-
-.announcement-title {
-  font-size: clamp(1.4rem, 5vw, 1.8rem);
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  margin-bottom: 12px;
-  color: #4a6b4a;
-  position: relative;
-}
-
-.announcement-title span {
-  font-size: clamp(1.6rem, 6vw, 2.2rem);
-  animation: bounce 2s infinite, twist 4s infinite ease-in-out;
-}
-
-@keyframes twist {
-  0%, 100% { transform: rotate(0deg); }
-  25% { transform: rotate(5deg); }
-  75% { transform: rotate(-5deg); }
-}
-
-.announcement-content {
-  font-size: clamp(1rem, 3.5vw, 1.1rem);
-  text-align: center;
-  line-height: 1.5;
-  position: relative;
-}
-
-.announcement-content a {
-  color: #4a6b4a;
-  text-decoration: none;
-  font-weight: 500;
-  position: relative;
-  transition: all 0.3s ease;
-  padding: 0 2px;
-}
-
-.announcement-content a::after {
-  content: "";
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: #ff9a9e;
-  transform: scaleX(0);
-  transform-origin: right;
-  transition: transform 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
-}
-
-.announcement-content a:hover {
-  color: #ff6b6b;
-}
-
-.announcement-content a:hover::after {
-  transform: scaleX(1);
-  transform-origin: left;
-}
-
-/* メニュー島 - もっとふんわり */
-.menu-island {
-  grid-area: menu;
-  width: min(160px, 40vw);
-  height: min(160px, 40vw);
-  background: rgba(255, 255, 255, 0.25);
-  border-radius: 50%;
-  box-shadow: 
-    0 8px 15px rgba(146, 104, 104, 0.15),
-    inset 0 4px 10px rgba(255, 255, 255, 0.3);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  animation: 
-    float 5s infinite ease-in-out,
-    gentlePulse 3s infinite alternate;
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  transform: rotate(2deg);
-  margin: 30px auto 0;
-  transition: all 0.4s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-@keyframes gentlePulse {
-  0% { transform: scale(1) rotate(2deg); }
-  100% { transform: scale(1.05) rotate(2deg); }
-}
-
-.menu-island:hover {
-  transform: scale(1.05) rotate(3deg);
-}
-
-.menu-island::after {
-  content: "";
-  position: absolute;
-  top: -10px;
-  left: -10px;
-  right: -10px;
-  bottom: -10px;
-  border-radius: 50%;
-  border: 2px dashed rgba(255,255,255,0.2);
-  animation: rotate 20s linear infinite;
-}
-
-/* リンク島 - ふんわり回転 */
-.new-links-island {
-  grid-area: links;
-  width: min(200px, 45vw);
-  height: min(200px, 45vw);
-  background: rgba(255, 255, 255, 0.25);
-  border-radius: 50%;
-  box-shadow: 
-    0 8px 15px rgba(146, 104, 104, 0.15),
-    inset 0 4px 10px rgba(255, 255, 255, 0.3);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 15px;
-  animation: 
-    float 7s infinite ease-in-out 0.5s,
-    gentleTwirl 15s infinite linear;
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  transform: rotate(3deg);
-  margin: 10px auto 0;
-  position: relative;
-}
-
-@keyframes gentleTwirl {
-  0% { transform: rotate(3deg); }
-  100% { transform: rotate(363deg); }
-}
-
-.new-links-island::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(
-    circle at center,
-    rgba(255,255,255,0.3) 0%,
-    transparent 70%
-  );
-  border-radius: 50%;
-  animation: pulseGlow 4s infinite alternate;
-}
-
-@keyframes pulseGlow {
-  0% { opacity: 0.3; }
-  100% { opacity: 0.6; }
-}
-
-/* 連絡先用の島 - 完璧な位置に */
-.contact-island {
-  grid-area: contact;
-  width: min(220px, 50vw);
-  min-height: 100px;
-  background: rgba(173, 216, 230, 0.7);
-  border-radius: 20px;
-  box-shadow: 
-    0 8px 15px rgba(146, 104, 104, 0.15),
-    inset 0 2px 5px rgba(255, 255, 255, 0.3);
-  padding: 15px;
-  animation: 
-    float 5s infinite ease-in-out 1s,
-    colorShift 8s infinite alternate;
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  transform: rotate(-1deg);
-  margin: -20px auto 0;
-  position: relative;
-  right: -15px;
-  transition: all 0.4s ease;
-  overflow: hidden;
-}
-
-@keyframes colorShift {
-  0% { filter: hue-rotate(0deg); }
-  100% { filter: hue-rotate(10deg); }
-}
-
-.contact-island:hover {
-  transform: rotate(-0.5deg) scale(1.03);
-}
-
-.contact-island::before {
-  content: "💌";
-  position: absolute;
-  font-size: 1.8rem;
-  opacity: 0.15;
-  right: 10px;
-  bottom: 5px;
-  animation: float 3s infinite ease-in-out 2s;
-}
-
-.contact-island::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    135deg,
-    rgba(255,255,255,0) 0%,
-    rgba(255,255,255,0.1) 50%,
-    rgba(255,255,255,0) 100%
-  );
-  animation: shine 5s infinite;
-}
-
-.contact-title {
-  font-size: clamp(1.1rem, 4vw, 1.5rem);
-  margin-bottom: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  color: #3a5d5d;
-  position: relative;
-}
-
-.contact-title::after {
-  content: "";
-  position: absolute;
-  bottom: -5px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 30px;
-  height: 2px;
-  background: rgba(255, 154, 158, 0.5);
-  border-radius: 2px;
-}
-
-.contact-content {
-  font-size: clamp(0.85rem, 3vw, 1rem);
-  text-align: center;
-}
-
-.email-link {
-  color: #3a5d5d;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  display: inline-block;
-  padding: 6px 10px;
-  border-radius: 15px;
-  background: rgba(255, 255, 255, 0.3);
-  position: relative;
-  overflow: hidden;
-  font-weight: 500;
-}
-
-.email-link:hover {
-  background: rgba(255, 255, 255, 0.5);
-  transform: translateY(-2px);
-  color: #ff6b6b;
-}
-
-.email-link::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255,255,255,0.4),
-    transparent
-  );
-  transition: left 0.7s ease;
-}
-
-.email-link:hover::before {
-  left: 100%;
-}
-
-.email-link span {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  position: relative;
-}
-
-/* ボタンスタイル - もっと可愛く */
-.menu-button {
-  display: inline-block;
-  padding: clamp(10px, 3vw, 14px) clamp(15px, 4vw, 22px);
-  background: #ff8a8a;
-  background: linear-gradient(135deg, #ff8a8a, #ff6b6b);
-  border-radius: 30px;
-  font-size: clamp(1rem, 4vw, 1.3rem);
-  font-weight: 600;
-  color: white;
-  text-decoration: none;
-  box-shadow: 
-    0 4px 8px rgba(210, 94, 94, 0.2),
-    inset 0 2px 4px rgba(255,255,255,0.2);
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  margin: 6px;
-  border: none;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-}
-
-.menu-button:hover {
-  transform: scale(1.1) rotate(2deg);
-  box-shadow: 
-    0 6px 12px rgba(210, 94, 94, 0.3),
-    inset 0 3px 6px rgba(255,255,255,0.3);
-  background: linear-gradient(135deg, #ff7b7b, #ff5a5a);
-}
-
-.menu-button::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    45deg,
-    transparent 0%,
-    rgba(255,255,255,0.3) 50%,
-    transparent 100%
-  );
-  transform: translateX(-100%);
-  transition: transform 0.6s ease;
-  z-index: -1;
-}
-
-.menu-button:hover::before {
-  transform: translateX(100%);
-}
-
-.menu-button::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 5px;
-  height: 5px;
-  background: rgba(255,255,255,0.6);
-  border-radius: 50%;
-  transform: translate(-50%, -50%) scale(0);
-  box-shadow: 
-    0 0 10px 5px rgba(255,255,255,0.4),
-    0 0 20px 10px rgba(255,255,255,0.2);
-  transition: transform 0.3s ease, opacity 0.3s ease;
-  opacity: 0;
-}
-
-.menu-button:active::after {
-  transform: translate(-50%, -50%) scale(10);
-  opacity: 1;
-}
-
-.menu-button span {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  position: relative;
-  z-index: 1;
-}
-
-/* キラキラエフェクト - もっと繊細に */
-.sparkle {
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  background: #fff;
-  border-radius: 50%;
-  pointer-events: none;
-  animation: sparkle 1.2s ease-out forwards;
-  box-shadow: 
-    0 0 8px 2px rgba(255, 255, 255, 0.8),
-    0 0 15px 5px rgba(255, 200, 200, 0.6);
-  z-index: 10;
-}
-
-@keyframes sparkle {
-  0% { 
-    opacity: 0; 
-    transform: scale(0.2) rotate(0deg); 
+/* 〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️
+   リセット＆ベーススタイル
+   〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️ */
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
-  50% { 
-    opacity: 1; 
-    transform: scale(1) rotate(180deg); 
+  
+  :root {
+    --main-color: #ff9a9e;
+    --sub-color: #fad0c4;
+    --text-color: #5d3a3a;
+    --accent-color: #ff6b6b;
   }
-  100% { 
-    opacity: 0; 
-    transform: scale(1.3) rotate(360deg); 
+  
+  body {
+    font-family: 'Noto Sans TC', 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: linear-gradient(135deg, var(--main-color), var(--sub-color));
+    color: var(--text-color);
+    min-height: 100vh;
+    padding: 20px;
+    overflow-x: hidden;
+    position: relative;
+    line-height: 1.6;
   }
-}
-
-/* レスポンシブ調整 */
-@media (max-width: 768px) {
+  
+  /* 〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️
+     季節の魔法エフェクト
+     〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️ */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+      radial-gradient(circle at 20% 30%, rgba(255,184,184,0.4) 0%, transparent 25%),
+      radial-gradient(circle at 80% 70%, rgba(255,223,211,0.4) 0%, transparent 25%);
+    animation: gentleMove 25s infinite alternate ease-in-out;
+    z-index: -1;
+  }
+  
+  body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.6;
+    background-repeat: repeat;
+  }
+  
+  /* 春モード (3-5月) */
+  body.spring::after {
+    background-image: 
+      url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="%23ff9a9e"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>'),
+      url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="%23ff6b6b"><circle cx="10" cy="10" r="3"/></svg>');
+    background-size: 30px 30px, 20px 20px;
+    animation: fallingPetals 20s linear infinite;
+  }
+  
+  /* 夏モード (6-8月) */
+  body.summer::after {
+    background-image: 
+      url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="%23FFD700"><path d="M10 2L5 8l1 7h8l1-7z"/></svg>');
+    background-size: 25px 25px;
+    animation: twinkle 3s ease-in-out infinite alternate;
+  }
+  
+  /* 秋モード (9-11月) */
+  body.autumn::after {
+    background-image: 
+      url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="%23FF8C00"><path d="M19 11h-6V5h-2v6H5v2h6v6h2v-6h6z"/></svg>');
+    background-size: 35px 35px;
+    animation: fallingLeaves 25s linear infinite;
+  }
+  
+  /* 冬モード (12-2月) */
+  body.winter::after {
+    background-image: 
+      url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="%23FFFFFF"><path d="M10 0l1.8 5.6L18 6l-4.5 3.7 1.7 5.6-5.2-3.4-5.2 3.4 1.7-5.6L2 6l6.2-.4z"/></svg>');
+    background-size: 25px 25px;
+    animation: snowFall 30s linear infinite;
+  }
+  
+  /* 〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️
+     メインレイアウト
+     〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️ */
   .container {
+    display: grid;
     grid-template-areas:
-      "title"
-      "announcement"
-      "menu"
-      "links"
-      "contact";
-    grid-template-columns: 1fr;
-    gap: 15px;
-    max-width: 95%;
+      "title title"
+      "announcement links"
+      "menu contact";
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
   }
   
+  /* 〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️
+     タイトルデザイン
+     〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️ */
   .title {
-    margin-bottom: 20px;
-    padding: 12px 20px;
+    grid-area: title;
+    font-size: clamp(2.2rem, 9vw, 3.8rem);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    animation: 
+      fadeIn 1.5s ease-out,
+      gentleSway 8s infinite ease-in-out;
+    text-align: center;
+    margin: 0 auto 30px;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 15px 30px;
+    border-radius: 50px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transform-style: preserve-3d;
+    transition: all 0.5s ease;
   }
   
-  .announcement-island,
-  .menu-island,
-  .new-links-island,
-  .contact-island {
-    margin: 0 auto 15px !important;
-    transform: none !important;
-    right: auto !important;
-    width: min(90%, 350px);
+  .title:hover {
+    transform: scale(1.02) rotate(-1deg);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   }
   
-  .menu-island,
+  /* 〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️
+     お知らせ島（季節ごとに色変化）
+     〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️ */
+  .announcement-island {
+    grid-area: announcement;
+    width: min(420px, 90%);
+    min-height: 150px;
+    background: rgba(200, 255, 200, 0.65);
+    border-radius: 25px;
+    box-shadow: 
+      0 8px 20px rgba(146, 104, 104, 0.15),
+      inset 0 4px 10px rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    animation: 
+      float 6s infinite ease-in-out,
+      colorShift 10s infinite alternate;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    transform: rotate(-1.5deg);
+    margin: 0 auto;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* 季節ごとの色変化 */
+  body.spring .announcement-island {
+    background: rgba(255, 200, 221, 0.65);
+  }
+  
+  body.summer .announcement-island {
+    background: rgba(200, 240, 255, 0.65);
+  }
+  
+  body.autumn .announcement-island {
+    background: rgba(255, 220, 200, 0.65);
+  }
+  
+  body.winter .announcement-island {
+    background: rgba(230, 230, 255, 0.65);
+  }
+  
+  /* 〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️
+     メニュー島（ふんわり円形）
+     〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️ */
+  .menu-island {
+    grid-area: menu;
+    width: min(160px, 40vw);
+    height: min(160px, 40vw);
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 50%;
+    box-shadow: 
+      0 8px 15px rgba(146, 104, 104, 0.15),
+      inset 0 4px 10px rgba(255, 255, 255, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: 
+      float 5s infinite ease-in-out,
+      gentlePulse 3s infinite alternate;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transform: rotate(2deg);
+    margin: 30px auto 0;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* 〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️
+     リンク島（回転アニメーション）
+     〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️ */
   .new-links-island {
-    height: min(160px, 70vw);
-    margin-top: 10px !important;
+    grid-area: links;
+    width: min(200px, 45vw);
+    height: min(200px, 45vw);
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 50%;
+    box-shadow: 
+      0 8px 15px rgba(146, 104, 104, 0.15),
+      inset 0 4px 10px rgba(255, 255, 255, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    animation: 
+      float 7s infinite ease-in-out 0.5s,
+      gentleTwirl 15s infinite linear;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transform: rotate(3deg);
+    margin: 10px auto 0;
+    position: relative;
   }
   
+  /* 〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️
+     連絡先用の島（右下に配置）
+     〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️ */
   .contact-island {
-    margin-top: 5px !important;
-  }
-}
-
-/* タッチデバイス用の調整 */
-@media (hover: none) {
-  .menu-button:hover,
-  .email-link:hover,
-  .announcement-island:hover,
-  .contact-island:hover {
-    transform: none !important;
+    grid-area: contact;
+    width: min(220px, 50vw);
+    min-height: 100px;
+    background: rgba(173, 216, 230, 0.7);
+    border-radius: 20px;
+    box-shadow: 
+      0 8px 15px rgba(146, 104, 104, 0.15),
+      inset 0 2px 5px rgba(255, 255, 255, 0.3);
+    padding: 15px;
+    animation: 
+      float 5s infinite ease-in-out 1s,
+      colorShift 8s infinite alternate;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    transform: rotate(-1deg);
+    margin: -20px auto 0;
+    position: relative;
+    right: -15px;
+    transition: all 0.4s ease;
+    overflow: hidden;
   }
   
-  .menu-button:active,
-  .email-link:active {
-    transform: scale(0.96) !important;
+  /* 〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️
+     ボタンデザイン（全ボタン共通）
+     〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️ */
+  .menu-button {
+    display: inline-block;
+    padding: clamp(10px, 3vw, 14px) clamp(15px, 4vw, 22px);
+    background: linear-gradient(135deg, var(--main-color), var(--accent-color));
+    border-radius: 30px;
+    font-size: clamp(1rem, 4vw, 1.3rem);
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+    box-shadow: 
+      0 4px 8px rgba(210, 94, 94, 0.2),
+      inset 0 2px 4px rgba(255,255,255,0.2);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    margin: 6px;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
   }
   
-  .menu-button:active::after {
-    transform: translate(-50%, -50%) scale(8);
-    opacity: 1;
+  /* 〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️
+     キラキラエフェクト
+     〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️ */
+  .sparkle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #fff;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: 
+      sparkle 1.2s ease-out forwards,
+      gentleFloat 3s ease-in-out infinite;
+    box-shadow: 
+      0 0 8px 2px rgba(255, 255, 255, 0.8),
+      0 0 15px 5px rgba(255, 200, 200, 0.6);
+    z-index: 10;
   }
-}
+  
+  /* 〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️
+     アニメーション定義
+     〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️ */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-15px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(1deg); }
+  }
+  
+  @keyframes gentleSway {
+    0%, 100% { transform: rotate(-0.5deg); }
+    50% { transform: rotate(0.5deg); }
+  }
+  
+  @keyframes gentleMove {
+    0% { transform: translate(-10px, -10px); }
+    50% { transform: translate(5px, 5px); }
+    100% { transform: translate(10px, 10px); }
+  }
+  
+  @keyframes fallingPetals {
+    0% { background-position: 0 0, 20px 20px; }
+    100% { background-position: 0 500px, 20px 520px; }
+  }
+  
+  @keyframes snowFall {
+    0% { background-position: 0 0, 10px 10px; }
+    100% { background-position: 0 500px, 10px 510px; }
+  }
+  
+  @keyframes gentlePulse {
+    0% { transform: scale(1) rotate(2deg); }
+    100% { transform: scale(1.05) rotate(2deg); }
+  }
+  
+  @keyframes gentleTwirl {
+    0% { transform: rotate(3deg); }
+    100% { transform: rotate(363deg); }
+  }
+  
+  @keyframes sparkle {
+    0% { 
+      opacity: 0; 
+      transform: scale(0.2) rotate(0deg); 
+    }
+    50% { 
+      opacity: 1; 
+      transform: scale(1) rotate(180deg); 
+    }
+    100% { 
+      opacity: 0; 
+      transform: scale(1.3) rotate(360deg); 
+    }
+  }
+  
+  @keyframes colorShift {
+    0% { filter: hue-rotate(0deg); }
+    100% { filter: hue-rotate(10deg); }
+  }
+  
+  /* 〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️
+     レスポンシブ調整
+     〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️ */
+  @media (max-width: 768px) {
+    .container {
+      grid-template-areas:
+        "title"
+        "announcement"
+        "menu"
+        "links"
+        "contact";
+      grid-template-columns: 1fr;
+      gap: 15px;
+      max-width: 95%;
+    }
+    
+    .title {
+      margin-bottom: 20px;
+      padding: 12px 20px;
+    }
+    
+    .announcement-island,
+    .menu-island,
+    .new-links-island,
+    .contact-island {
+      margin: 0 auto 15px !important;
+      transform: none !important;
+      right: auto !important;
+      width: min(90%, 350px);
+    }
+    
+    .menu-island,
+    .new-links-island {
+      height: min(160px, 70vw);
+      margin-top: 10px !important;
+    }
+    
+    .contact-island {
+      margin-top: 5px !important;
+      right: auto !important;
+    }
+  }
+  
+  /* 〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️
+     タッチデバイス用の調整
+     〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️ */
+  @media (hover: none) {
+    .menu-button:hover,
+    .email-link:hover,
+    .announcement-island:hover,
+    .contact-island:hover {
+      transform: none !important;
+    }
+    
+    .menu-button:active,
+    .email-link:active {
+      transform: scale(0.96) !important;
+    }
+    
+    .menu-button:active::after {
+      transform: translate(-50%, -50%) scale(8);
+      opacity: 1;
+    }
+  }
+  
+  /* 〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️
+     特別日モード（クリスマス）
+     〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️ */
+  body.xmas-mode {
+    --main-color: #ffd8d8;
+    --sub-color: #d4f0fd;
+    --text-color: #5d3a3a;
+    --accent-color: #ff6b6b;
+  }
+  
+  body.xmas-mode::before {
+    background: 
+      radial-gradient(circle at 20% 30%, rgba(255,216,216,0.6) 0%, transparent 30%),
+      radial-gradient(circle at 80% 70%, rgba(212,240,253,0.6) 0%, transparent 30%);
+  }
+  
+  body.xmas-mode::after {
+    background-image: 
+      url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="%23FF0000"><path d="M10 0l3 6 6 .5-4.5 4 1.5 6-5.5-3.5L5.5 17l1.5-6L2 6.5 7 6z"/></svg>'),
+      url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="%23FFFFFF"><circle cx="10" cy="10" r="2"/></svg>');
+    animation: xmasSparkle 5s linear infinite;
+    opacity: 0.8;
+  }
+  
+  @keyframes xmasSparkle {
+    0% { background-position: 0 0, 10px 10px; }
+    100% { background-position: 0 100px, 10px 110px; }
+  }
+  
+  body.xmas-mode .title::after {
+    content: "🎄 Merry Christmas! 🎄";
+    display: block;
+    font-size: 0.4em;
+    margin-top: 5px;
+    animation: blink 2s infinite;
+  }
+  
+  body.xmas-mode .contact-island {
+    background: rgba(230, 255, 230, 0.7);
+    box-shadow: 0 0 15px rgba(50, 255, 50, 0.3);
+  }
+  
+  body.xmas-mode .contact-island::before {
+    content: "🎁";
+    font-size: 2rem;
+    opacity: 0.3;
+  }
+  
+  @keyframes blink {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; }
+  }
+  
+  /* 〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️
+     その他コンポーネント
+     〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️ */
+  .announcement-title {
+    font-size: clamp(1.4rem, 5vw, 1.8rem);
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    color: #4a6b4a;
+    position: relative;
+  }
+  
+  .announcement-title span {
+    font-size: clamp(1.6rem, 6vw, 2.2rem);
+    animation: bounce 2s infinite, twist 4s infinite ease-in-out;
+  }
+  
+  .announcement-content {
+    font-size: clamp(1rem, 3.5vw, 1.1rem);
+    text-align: center;
+    line-height: 1.5;
+    position: relative;
+  }
+  
+  .announcement-content a {
+    color: #4a6b4a;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    transition: all 0.3s ease;
+    padding: 0 2px;
+  }
+  
+  .announcement-content a::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--accent-color);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+  
+  .announcement-content a:hover {
+    color: var(--accent-color);
+  }
+  
+  .announcement-content a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  
+  .contact-title {
+    font-size: clamp(1.1rem, 4vw, 1.5rem);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: #3a5d5d;
+    position: relative;
+  }
+  
+  .contact-title::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 2px;
+    background: rgba(255, 154, 158, 0.5);
+    border-radius: 2px;
+  }
+  
+  .contact-content {
+    font-size: clamp(0.85rem, 3vw, 1rem);
+    text-align: center;
+  }
+  
+  .email-link {
+    color: #3a5d5d;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+    font-weight: 500;
+  }
+  
+  .email-link:hover {
+    background: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+    color: var(--accent-color);
+  }
+  
+  .email-link::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,0.4),
+      transparent
+    );
+    transition: left 0.7s ease;
+  }
+  
+  .email-link:hover::before {
+    left: 100%;
+  }
+  
+  .email-link span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    position: relative;
+  }
+  
+  .email-link:hover::after {
+    content: "メール待ってます♪";
+    display: block;
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.7em;
+    color: var(--accent-color);
+    white-space: nowrap;
+    animation: textBounce 0.5s ease;
+  }
+  
+  @keyframes textBounce {
+    0%, 100% { transform: translateX(-50%) scale(1); }
+    50% { transform: translateX(-50%) scale(1.1); }
+  }
+  
+  @keyframes twist {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(5deg); }
+    75% { transform: rotate(-5deg); }
+  }
+  
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+  
+  /* 〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️
+     コンソールメッセージ
+     〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️ */
+  @media (min-width: 768px) {
+    .container::after {
+      content: "🎀 コンソールを開くとサプライズが...！";
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      font-size: 0.8em;
+      color: rgba(93, 58, 58, 0.5);
+      animation: gentleFade 3s infinite;
+    }
+  }
+  
+  @keyframes gentleFade {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.7; }
+  }
