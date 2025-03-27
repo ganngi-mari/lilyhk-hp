@@ -1,16 +1,28 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // ヘルパー関数：ローカルストレージからテーマを取得
-    function getThemeFromLocalStorage() {
-        return localStorage.getItem('theme') || 'light';
-    }
+    // テーマ管理機能
+    const themeManager = {
+        getCurrentTheme: function() {
+            return localStorage.getItem('theme') || 'light';
+        },
+        applyTheme: function(theme) {
+            document.body.classList.toggle('dark-mode', theme === 'dark');
+            this.applyLoadingScreenTheme(theme === 'dark');
+            localStorage.setItem('theme', theme);
+            console.log(`テーマを適用: ${theme}`);
+        },
+        applyLoadingScreenTheme: function(isDark) {
+            const loadingScreen = document.getElementById('loading-screen');
+            if (loadingScreen) {
+                loadingScreen.classList.toggle('loading-screen-dark', isDark);
+                loadingScreen.classList.toggle('loading-screen-light', !isDark);
+            }
+        }
+    };
 
-    // プロフィール画像の切り替え
+    // プロフィール画像トグル
     function setupProfileImageToggle() {
         const profileImage = document.getElementById('profileImage');
-        if (!profileImage) {
-            console.error('プロフィール画像が見つかりません。');
-            return;
-        }
+        if (!profileImage) return;
 
         const imagePaths = {
             default: '../myicon.png',
@@ -19,95 +31,229 @@ document.addEventListener("DOMContentLoaded", function () {
 
         let currentImage = imagePaths.default;
 
-        profileImage.addEventListener('click', function () {
+        // クリック/タップ処理
+        const handleImageToggle = () => {
             currentImage = currentImage === imagePaths.default ? imagePaths.alternate : imagePaths.default;
             profileImage.src = currentImage;
-            console.log(`プロフィール画像を切り替えました: ${currentImage}`); // ログ出力
-        });
-    }
-
-    // ダークモードの切り替え
-    function setupDarkModeToggle() {
-        const toggleDarkModeButton = document.getElementById('toggle-dark-mode');
-        if (!toggleDarkModeButton) {
-            console.error('ダークモードボタンが見つかりません。');
-            return;
-        }
-
-        toggleDarkModeButton.addEventListener('click', function () {
-            const isDarkMode = document.body.classList.toggle('dark-mode');
-            applyLoadingScreenStyles(isDarkMode);
-            const theme = isDarkMode ? 'dark' : 'light';
-            localStorage.setItem('theme', theme);
-            console.log(`ダークモードを切り替えました: ${theme}`); // ログ出力
-        });
-    }
-
-    // ローディング画面のセットアップ
-    function setupLoadingScreen() {
-        const loadingScreen = document.getElementById('loading-screen');
-        if (!loadingScreen) {
-            console.error('ローディング画面が見つかりません。');
-            return;
-        }
-
-        setTimeout(function () {
-            loadingScreen.classList.add('fade-out');
-            const transitionEndHandler = () => {
-                loadingScreen.style.display = 'none';
-                loadingScreen.removeEventListener('transitionend', transitionEndHandler);
-                console.log('ローディング画面を非表示にしました。'); // ログ出力
-            };
-            loadingScreen.addEventListener('transitionend', transitionEndHandler);
-
-            // タイムアウトを設定
+            
+            // リッチなアニメーション効果
+            profileImage.style.transform = "scale(1.1)";
             setTimeout(() => {
-                loadingScreen.style.display = 'none';
-            }, 3000); // 最大3秒後に強制的に非表示
-        }, 2000);
+                profileImage.style.transform = "scale(1)";
+            }, 300);
+        };
 
-        loadingScreen.style.display = 'flex';
-        console.log('ローディング画面を表示しました。'); // ログ出力
+        // タッチデバイス用フィードバック
+        const handleTouchStart = () => {
+            profileImage.style.transition = "transform 0.2s ease";
+            profileImage.style.transform = "scale(0.95)";
+        };
+
+        const handleTouchEnd = () => {
+            profileImage.style.transform = "scale(1)";
+        };
+
+        // イベントリスナー登録
+        profileImage.addEventListener('click', handleImageToggle);
+        profileImage.addEventListener('touchstart', handleTouchStart, { passive: true });
+        profileImage.addEventListener('touchend', handleTouchEnd, { passive: true });
     }
 
-    // ローディング画面のスタイルを適用
-    function applyLoadingScreenStyles(isDark) {
+    // ダークモードトグル
+    function setupDarkModeToggle() {
+        const toggleButton = document.getElementById('toggle-dark-mode');
+        if (!toggleButton) return;
+
+        const handleToggle = () => {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            themeManager.applyTheme(isDarkMode ? 'dark' : 'light');
+            
+            // リッチなアニメーション
+            toggleButton.style.transform = "rotate(360deg)";
+            toggleButton.style.transition = "transform 0.5s ease";
+            
+            setTimeout(() => {
+                toggleButton.style.transform = "rotate(0deg)";
+                toggleButton.textContent = isDarkMode ? "☀️" : "🌙";
+            }, 500);
+        };
+
+        // タッチフィードバック
+        const handleTouchStart = () => {
+            toggleButton.style.transform = "scale(0.9)";
+        };
+
+        const handleTouchEnd = () => {
+            toggleButton.style.transform = "scale(1)";
+        };
+
+        // イベントリスナー登録
+        toggleButton.addEventListener('click', handleToggle);
+        toggleButton.addEventListener('touchstart', handleTouchStart, { passive: true });
+        toggleButton.addEventListener('touchend', handleTouchEnd, { passive: true });
+    }
+
+    // ローディング画面管理
+    function setupLoadingScreen() {
         const loadingScreen = document.getElementById('loading-screen');
         if (!loadingScreen) return;
 
-        loadingScreen.classList.toggle('loading-screen-dark', isDark);
-        loadingScreen.classList.toggle('loading-screen-light', !isDark);
-        console.log(`ローディング画面のスタイルを適用しました: ${isDark ? 'ダークモード' : 'ライトモード'}`); // ログ出力
+        // アニメーション強化
+        loadingScreen.style.opacity = "1";
+        loadingScreen.style.transition = "opacity 0.5s ease";
+
+        // スピナーアニメーション
+        const spinner = loadingScreen.querySelector('.spinner');
+        if (spinner) {
+            spinner.style.animation = "spin 1s linear infinite, glow 2s ease-in-out infinite alternate";
+        }
+
+        // ローディング完了処理
+        const handleLoadComplete = () => {
+            loadingScreen.style.opacity = "0";
+            
+            const transitionEndHandler = () => {
+                loadingScreen.style.display = 'none';
+                loadingScreen.removeEventListener('transitionend', transitionEndHandler);
+            };
+            
+            loadingScreen.addEventListener('transitionend', transitionEndHandler);
+            
+            // フォールバック
+            setTimeout(() => {
+                if (loadingScreen.style.display !== 'none') {
+                    loadingScreen.style.display = 'none';
+                }
+            }, 1000);
+        };
+
+        // 最低2秒間表示
+        setTimeout(handleLoadComplete, 2000);
     }
 
-    // 言語メニューの展開/折りたたみを制御
-    function setupLanguageMenuToggle() {
-        const languageToggleButton = document.getElementById("language-toggle-button");
+    // 言語メニュー管理
+    function setupLanguageMenu() {
+        const toggleButton = document.getElementById("language-toggle-button");
         const languageMenu = document.getElementById("language-menu");
 
-        if (languageToggleButton && languageMenu) {
-            languageToggleButton.addEventListener("click", () => {
-                const isOpen = languageMenu.classList.toggle("open");
-                console.log(`言語メニューを${isOpen ? '展開' : '折りたたみ'}ました。`); // ログ出力
+        if (!toggleButton || !languageMenu) return;
+
+        // メニュー開閉処理
+        const toggleMenu = (e) => {
+            e.stopPropagation();
+            const isOpen = languageMenu.classList.toggle("open");
+            
+            // アニメーション効果
+            if (isOpen) {
+                languageMenu.style.display = "flex";
+                setTimeout(() => {
+                    languageMenu.style.opacity = "1";
+                    languageMenu.style.transform = "translateY(0)";
+                }, 10);
+            } else {
+                languageMenu.style.opacity = "0";
+                languageMenu.style.transform = "translateY(10px)";
+                setTimeout(() => {
+                    languageMenu.style.display = "none";
+                }, 300);
+            }
+        };
+
+        // メニュー外をクリックで閉じる
+        const closeMenuOnClickOutside = (e) => {
+            if (!languageMenu.contains(e.target) && e.target !== toggleButton) {
+                languageMenu.classList.remove("open");
+                languageMenu.style.opacity = "0";
+                languageMenu.style.transform = "translateY(10px)";
+                setTimeout(() => {
+                    languageMenu.style.display = "none";
+                }, 300);
+            }
+        };
+
+        // タッチホールド機能
+        let touchTimer;
+        const handleTouchStart = () => {
+            touchTimer = setTimeout(() => {
+                languageMenu.classList.add("open");
+                languageMenu.style.display = "flex";
+                setTimeout(() => {
+                    languageMenu.style.opacity = "1";
+                    languageMenu.style.transform = "translateY(0)";
+                }, 10);
+            }, 500);
+        };
+
+        const handleTouchEnd = () => {
+            clearTimeout(touchTimer);
+        };
+
+        // イベントリスナー登録
+        toggleButton.addEventListener("click", toggleMenu);
+        document.addEventListener("click", closeMenuOnClickOutside);
+        toggleButton.addEventListener("touchstart", handleTouchStart, { passive: true });
+        toggleButton.addEventListener("touchend", handleTouchEnd, { passive: true });
+    }
+
+    // レスポンシブ調整
+    function setupResponsiveHandlers() {
+        const handleResize = () => {
+            const isMobile = window.innerWidth <= 768;
+            const floatingButtons = document.getElementById("floating-buttons");
+
+            if (floatingButtons) {
+                floatingButtons.style.flexDirection = isMobile ? "row" : "column";
+                floatingButtons.style.gap = isMobile ? "10px" : "15px";
+            }
+        };
+
+        // 初期化とリサイズイベント登録
+        handleResize();
+        window.addEventListener("resize", handleResize);
+    }
+
+    // タッチデバイス検出と最適化
+    function setupTouchOptimizations() {
+        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+        
+        if (isTouchDevice) {
+            // タッチフィードバックを追加
+            const interactiveElements = document.querySelectorAll('button, a, .clickable-icon');
+            
+            interactiveElements.forEach(el => {
+                el.style.transition = "transform 0.1s ease";
+                
+                el.addEventListener('touchstart', () => {
+                    el.style.transform = "scale(0.95)";
+                }, { passive: true });
+                
+                el.addEventListener('touchend', () => {
+                    el.style.transform = "scale(1)";
+                }, { passive: true });
             });
-        } else {
-            console.error("言語切り替えボタンまたはメニューが見つかりません。");
         }
     }
 
     // 初期化処理
-    const currentTheme = getThemeFromLocalStorage();
-    if (currentTheme === 'dark') {
-        document.body.classList.add('dark-mode');
-        applyLoadingScreenStyles(true);
-        console.log('初期化: ダークモードを有効にしました。'); // ログ出力
-    } else {
-        applyLoadingScreenStyles(false);
-        console.log('初期化: ライトモードを有効にしました。'); // ログ出力
+    function initialize() {
+        // テーマ適用
+        const currentTheme = themeManager.getCurrentTheme();
+        themeManager.applyTheme(currentTheme);
+
+        // 各機能セットアップ
+        setupProfileImageToggle();
+        setupDarkModeToggle();
+        setupLoadingScreen();
+        setupLanguageMenu(); // 言語メニューを最初に初期化
+        
+        console.log("初期化完了 - モバイル対応版");
     }
 
-    setupProfileImageToggle();
-    setupDarkModeToggle();
-    setupLoadingScreen();
-    setupLanguageMenuToggle(); // 言語メニューの初期化を追加
+    initialize();
 });
+
+// 言語切り替え関数（i18n.jsから呼び出される）
+function changeLanguage(lang) {
+    console.log(`言語を切り替え: ${lang}`);
+    // 実際の言語切り替え処理はi18n.jsで実装
+}
