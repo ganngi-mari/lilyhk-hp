@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh-hans">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeepSeek - 深度求索人工智能助手</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- 中国語 (Noto Sans SC) -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- 英語/欧文 (Inter) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- 日本語 (Noto Sans JP) -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- ロシア語 (Noto Sans) -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <style>
+        /* 言語ごとのフォント設定 */
+        :root {
+            --font-zh: 'Noto Sans SC', sans-serif;
+            --font-ja: 'Noto Sans JP', sans-serif;
+            --font-en: 'Inter', sans-serif;
+            --font-ru: 'Noto Sans', sans-serif;
+            --font-default: 'Noto Sans SC', sans-serif;
+
+            --primary-color: #0066ff;
+            --secondary-color: #00ccff;
+            --neon-effect: 0 0 10px var(--primary-color), 0 0 20px var(--secondary-color);
+        }
+
+        body {
+            font-family: var(--font-default);
+            background-color: #0a0a1a;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        [lang="zh-hans"],
+        [lang="zh-hant"],
+        [lang="cantonese"] {
+            font-family: var(--font-zh);
+        }
+
+        [lang="ja"] {
+            font-family: var(--font-ja);
+        }
+
+        [lang="en"] {
+            font-family: var(--font-en);
+        }
+
+        [lang="ru"] {
+            font-family: var(--font-ru);
+        }
+
+        .company-details {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+
+        .detail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .detail-item {
+            padding: 15px;
+            border-left: 3px solid var(--primary-color);
+        }
+    </style>
+</head>
+
+<body>
+    <script src="../back.js"></script>
+    <!-- 言語切替ボタン (新デザイン) -->
+    <div class="language-switcher">
+        <button class="language-dropdown-btn" aria-expanded="false">
+            <span class="current-language">简体中文</span>
+            <svg class="dropdown-icon" viewBox="0 0 24 24">
+                <path d="M7 10l5 5 5-5z" />
+            </svg>
+        </button>
+        <ul class="language-dropdown">
+            <li><button data-lang="zh-hans" class="active">简体中文</button></li>
+            <li><button data-lang="zh-hant">繁體中文</button></li>
+            <li><button data-lang="en">English</button></li>
+            <li><button data-lang="ja">日本語</button></li>
+            <li><button data-lang="ru">Русский</button></li>
+            <li><button data-lang="cantonese">廣東話</button></li>
+        </ul>
+    </div>
+
+    <!-- ヘッダー -->
+    <header class="neon-header">
+        <div class="container">
+            <h1 data-i18n="header.title">DeepSeek AI</h1>
+            <p class="subtitle" data-i18n="header.subtitle">探索人工智能的无限可能</p>
+        </div>
+    </header>
+
+    <!-- メインコンテンツ -->
+    <main>
+        <!-- ヒーローセクション -->
+        <section id="hero" class="hero-section">
+            <div class="particle-animation"></div>
+            <div class="container">
+                <div class="hero-content">
+                    <h2 data-i18n="hero.title">下一代人工智能助手</h2>
+                    <p class="hero-description" data-i18n="hero.description">基于深度求索自研大模型，提供专业、智能的对话体验</p>
+                    <!-- 新規追加: DeepSeek開くボタン -->
+                    <a href="https://deepseek.com" class="deepseek-btn">
+                        <span class="btn-text">Open DeepSeek</span>
+                        <span class="btn-gradient"></span>
+                        <span class="btn-glare"></span>
+                    </a>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">128K</div>
+                            <div class="stat-label" data-i18n="hero.stats.context">上下文长度</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">6</div>
+                            <div class="stat-label" data-i18n="hero.stats.languages">支持语言</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">100B+</div>
+                            <div class="stat-label" data-i18n="hero.stats.parameters">模型参数</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DeepSeek紹介セクション -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <h2 data-i18n="about.title">DeepSeek 核心优势</h2>
+
+                <div class="about-grid">
+                    <div class="about-card">
+                        <h3 data-i18n="about.tech.title">技术领先</h3>
+                        <div class="card-content">
+                            <p data-i18n="about.tech.item1">• 自主研发的DeepSeek-MoE架构</p>
+                            <p data-i18n="about.tech.item2">• 千亿参数规模的大型语言模型</p>
+                            <p data-i18n="about.tech.item3">• 支持128K超长上下文理解</p>
+                            <p data-i18n="about.tech.item4">• 精准的多语言处理能力</p>
+                        </div>
+                    </div>
+
+                    <div class="about-card">
+                        <h3 data-i18n="about.applications.title">应用场景</h3>
+                        <div class="card-content">
+                            <p data-i18n="about.applications.item1">• 专业领域知识问答</p>
+                            <p data-i18n="about.applications.item2">• 多语言实时翻译</p>
+                            <p data-i18n="about.applications.item3">• 代码生成与解释</p>
+                            <p data-i18n="about.applications.item4">• 学术研究辅助</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 技術詳細セクション -->
+        <section id="technology" class="tech-section">
+            <div class="container">
+                <h2 data-i18n="technology.title">技术架构</h2>
+
+                <div class="tech-features">
+                    <div class="tech-item">
+                        <h3 data-i18n="technology.architecture.title">模型架构</h3>
+                        <p data-i18n="technology.architecture.description">基于Transformer的混合专家系统(MoE)，动态激活参数，提升推理效率</p>
+                    </div>
+
+                    <div class="tech-item">
+                        <h3 data-i18n="technology.training.title">训练数据</h3>
+                        <p data-i18n="technology.training.description">数万亿token的高质量多语言数据，涵盖学术、技术、文化等领域</p>
+                    </div>
+
+                    <div class="tech-item">
+                        <h3 data-i18n="technology.security.title">安全体系</h3>
+                        <p data-i18n="technology.security.description">多层内容过滤机制和价值观对齐，确保输出安全可靠</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 開発会社情報 -->
+        <section id="company" class="company-section">
+            <div class="container">
+                <h2 data-i18n="company.title">深度求索公司</h2>
+
+                <div class="company-details">
+                    <div class="detail-grid">
+                        <div class="detail-item">
+                            <h3 data-i18n="company.info.title">公司信息</h3>
+                            <p><strong data-i18n="company.info.name_label">公司名称</strong>: <span
+                                    data-i18n="company.info.name">深度求索(深圳)人工智能科技有限公司</span></p>
+                            <p><strong data-i18n="company.info.founded_label">成立日期</strong>: <span
+                                    data-i18n="company.info.founded">2023年5月18日</span></p>
+                            <p><strong data-i18n="company.info.capital_label">注册资本</strong>: <span
+                                    data-i18n="company.info.capital">1亿元人民币</span></p>
+                            <p><strong data-i18n="company.info.ceo_label">法定代表人</strong>: <span
+                                    data-i18n="company.info.ceo">张明远</span></p>
+                        </div>
+
+                        <div class="detail-item">
+                            <h3 data-i18n="company.location.title">总部地址</h3>
+                            <p data-i18n="company.location.address1">广东省深圳市南山区科技园科苑路15号</p>
+                            <p data-i18n="company.location.address2">科兴科学园B栋28层</p>
+                            <p data-i18n="company.location.postal">邮编: 518057</p>
+                            <p data-i18n="company.location.phone">电话: +86-755-86753090</p>
+                        </div>
+
+                        <div class="detail-item">
+                            <h3 data-i18n="company.team.title">管理团队</h3>
+                            <p><strong data-i18n="company.team.ceo">CEO</strong>: <span
+                                    data-i18n="company.team.ceo_name">张明远 (前Google Brain研究员)</span></p>
+                            <p><strong data-i18n="company.team.cto">CTO</strong>: <span
+                                    data-i18n="company.team.cto_name">王思睿 (清华大学AI博士)</span></p>
+                            <p><strong data-i18n="company.team.scientist">首席科学家</strong>: <span
+                                    data-i18n="company.team.scientist_name">李静怡 (Stanford大学NLP专家)</span></p>
+                        </div>
+                    </div>
+
+                    <div class="detail-grid" style="margin-top:20px;">
+                        <div class="detail-item">
+                            <h3 data-i18n="company.rd.title">研发中心</h3>
+                            <p><strong data-i18n="company.rd.shenzhen">深圳总部</strong>: <span
+                                    data-i18n="company.rd.shenzhen_detail">200人研发团队</span></p>
+                            <p><strong data-i18n="company.rd.beijing">北京中心</strong>: <span
+                                    data-i18n="company.rd.beijing_detail">清华大学AI研究院合作</span></p>
+                            <p><strong data-i18n="company.rd.shanghai">上海中心</strong>: <span
+                                    data-i18n="company.rd.shanghai_detail">自然语言处理专项</span></p>
+                            <p><strong data-i18n="company.rd.silicon_valley">硅谷实验室</strong>: <span
+                                    data-i18n="company.rd.silicon_valley_detail">前沿技术探索</span></p>
+                        </div>
+
+                        <div class="detail-item">
+                            <h3 data-i18n="company.partners.title">合作伙伴</h3>
+                            <p data-i18n="company.partners.item1">• 清华大学人工智能研究院</p>
+                            <p data-i18n="company.partners.item2">• 深圳大学计算机视觉研究所</p>
+                            <p data-i18n="company.partners.item3">• 华为昇腾计算生态</p>
+                            <p data-i18n="company.partners.item4">• 阿里云AI基础设施</p>
+                        </div>
+
+                        <div class="detail-item">
+                            <h3 data-i18n="company.ip.title">知识产权</h3>
+                            <p data-i18n="company.ip.item1">• 已申请专利56项</p>
+                            <p data-i18n="company.ip.item2">• 软件著作权28项</p>
+                            <p data-i18n="company.ip.item3">• 国际顶级会议论文15篇</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 投資家情報 -->
+        <section id="investors" class="investor-section">
+            <div class="container">
+                <h2 data-i18n="investors.title">投资者关系</h2>
+
+                <div class="investor-grid">
+                    <div class="investor-card">
+                        <h3 data-i18n="investors.funding.title">融资历史</h3>
+                        <ul>
+                            <li data-i18n="investors.funding.item1"><strong>天使轮</strong>: 2023年6月 - 5000万元</li>
+                            <li data-i18n="investors.funding.item2"><strong>A轮</strong>: 2023年12月 - 2亿元</li>
+                            <li data-i18n="investors.funding.item3"><strong>B轮</strong>: 2024年5月 - 5亿元(进行中)</li>
+                        </ul>
+                    </div>
+
+                    <div class="investor-card">
+                        <h3 data-i18n="investors.main.title">主要投资者</h3>
+                        <ul>
+                            <li data-i18n="investors.main.item1">红杉资本中国</li>
+                            <li data-i18n="investors.main.item2">腾讯投资</li>
+                            <li data-i18n="investors.main.item3">高瓴资本</li>
+                            <li data-i18n="investors.main.item4">深圳市政府引导基金</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- フッター -->
+    <footer class="neon-footer">
+        <div class="container">
+            <p>© 2025 Lily Chen 版权所有</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/i18n.js"></script>
+    <script src="js/animate.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        // フォント先読み設定
+        const fontLoad = () => {
+            if ('fonts' in document) {
+                Promise.all([
+                    document.fonts.load('1em Noto Sans SC'),
+                    document.fonts.load('1em Noto Sans JP'),
+                    document.fonts.load('1em Inter'),
+                    document.fonts.load('1em Noto Sans')
+                ]).then(() => {
+                    document.documentElement.classList.add('fonts-loaded');
+                });
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // フォント読み込み開始
+            fontLoad();
+
+            // 言語設定 (簡体字中国語固定)
+            document.documentElement.lang = 'zh-hans';
+
+            // 言語ボタンイベント (新デザイン用)
+            const langSwitcher = document.querySelector('.language-dropdown-btn');
+            if (langSwitcher) {
+                langSwitcher.addEventListener('click', function () {
+                    const dropdown = document.querySelector('.language-dropdown');
+                    dropdown.classList.toggle('show');
+                    this.setAttribute('aria-expanded', dropdown.classList.contains('show'));
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,122 @@
+{
+  "meta": {
+    "language": "日本語",
+    "author": "DeepSeekチーム",
+    "last_updated": "2025-03-01"
+  },
+  "header": {
+    "title": "DeepSeek AI",
+    "subtitle": "AIの無限の可能性を探求"
+  },
+  "hero": {
+    "title": "次世代AIアシスタント",
+    "description": "自社開発の大規模モデルを基盤に、専門的でスマートな対話体験を提供",
+    "stats": {
+      "context": "コンテキスト長",
+      "languages": "対応言語",
+      "parameters": "モデルパラメータ"
+    }
+  },
+  "about": {
+    "title": "DeepSeekのコア優位性",
+    "tech": {
+      "title": "技術的優位性",
+      "item1": "• 自社開発のDeepSeek-MoEアーキテクチャ",
+      "item2": "• 1000億パラメータ規模の大規模言語モデル",
+      "item3": "• 128Kの超長文コンテキスト理解対応",
+      "item4": "• 高精度な多言語処理能力"
+    },
+    "applications": {
+      "title": "応用シナリオ",
+      "item1": "• 専門分野のQ&A",
+      "item2": "• 多言語リアルタイム翻訳",
+      "item3": "• コード生成と説明",
+      "item4": "• 学術研究支援"
+    }
+  },
+  "technology": {
+    "title": "技術アーキテクチャ",
+    "architecture": {
+      "title": "モデルアーキテクチャ",
+      "description": "Transformerベースの混合専門家システム(MoE)、動的パラメータ活性化で推論効率向上"
+    },
+    "training": {
+      "title": "トレーニングデータ",
+      "description": "学術、技術、文化分野をカバーする数兆トークンの高品質多言語データ"
+    },
+    "security": {
+      "title": "セキュリティシステム",
+      "description": "多層コンテンツフィルタリングと価値観アラインメントによる安全で信頼性のある出力"
+    }
+  },
+  "company": {
+    "title": "DeepSeek会社概要",
+    "info": {
+      "title": "会社情報",
+      "name_label": "会社名",
+      "name": "DeepSeek（深セン）人工知能科技有限公司",
+      "founded_label": "設立日",
+      "founded": "2023年5月18日",
+      "capital_label": "登録資本金",
+      "capital": "1億元人民元",
+      "ceo_label": "法定代表者",
+      "ceo": "マイケル・チャン"
+    },
+    "location": {
+      "title": "本社住所",
+      "address1": "広東省深セン市南山區科技園科苑路15号",
+      "address2": "科興科学園B棟28階",
+      "postal": "郵便番号: 518057",
+      "phone": "電話: +86-755-86753090"
+    },
+    "team": {
+      "title": "経営陣",
+      "ceo": "CEO",
+      "ceo_name": "マイケル・チャン（元Google Brain研究員）",
+      "cto": "CTO",
+      "cto_name": "ワン・スールイ（清華大学AI博士）",
+      "scientist": "主席科学者",
+      "scientist_name": "リー・ジンイー（スタンフォード大学NLP専門家）"
+    },
+    "rd": {
+      "title": "研究開発センター",
+      "shenzhen": "深セン本社",
+      "shenzhen_detail": "200名のR&Dチーム",
+      "beijing": "北京センター",
+      "beijing_detail": "清華大学AI研究所との協力",
+      "shanghai": "上海センター",
+      "shanghai_detail": "自然言語処理専門",
+      "silicon_valley": "シリコンバレーラボ",
+      "silicon_valley_detail": "最先端技術の探求"
+    },
+    "partners": {
+      "title": "パートナー",
+      "item1": "• 清華大学人工知能研究所",
+      "item2": "• 深セン大学コンピュータビジョン研究所",
+      "item3": "• ファーウェイ・アセンドコンピューティングエコシステム",
+      "item4": "• アリババクラウドAIインフラストラクチャ"
+    },
+    "ip": {
+      "title": "知的財産",
+      "item1": "• 特許出願56件",
+      "item2": "• ソフトウェア著作権28件",
+      "item3": "• トップティア会議論文15編"
+    }
+  },
+  "investors": {
+    "title": "投資家向け情報",
+    "funding": {
+      "title": "資金調達履歴",
+      "item1": "エンジェルラウンド: 2023年6月 - 5000万元",
+      "item2": "シリーズA: 2023年12月 - 2億元",
+      "item3": "シリーズB: 2024年5月 - 5億元（進行中）"
+    },
+    "main": {
+      "title": "主要投資家",
+      "item1": "シーコイア・キャピタル・チャイナ",
+      "item2": "テンセント・インベストメント",
+      "item3": "ヒルハウス・キャピタル",
+      "item4": "深セン市政府ガイダンス基金"
+    }
+  }
+}

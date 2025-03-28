@@ -214,16 +214,18 @@
        ============================================= */
   .menu-island {
     grid-area: menu;
-    width: min(160px, 40vw);
-    height: min(160px, 40vw);
+    width: min(250px, 40vw);
+    height: min(200px, 40vw);
     background: rgba(255, 255, 255, 0.25);
     border-radius: 50%;
     box-shadow:
       0 8px 15px rgba(146, 104, 104, 0.15),
       inset 0 4px 10px rgba(255, 255, 255, 0.3);
     display: flex;
+    flex-direction: column; /* ボタンを縦並びに */
     justify-content: center;
     align-items: center;
+    gap: 12px; /* ボタン間の間隔 */
     animation:
       popUp 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards,
       float 5s infinite ease-in-out 1.2s,
@@ -403,6 +405,34 @@
     gap: 8px;
     position: relative;
     z-index: 1;
+  }
+  /* Deepseekボタンの追加スタイル */
+.menu-button.deepseek {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  box-shadow: 
+    0 4px 8px rgba(37, 99, 235, 0.2),
+    inset 0 2px 4px rgba(255,255,255,0.2);
+}
+
+.menu-button.deepseek:hover {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  box-shadow: 
+    0 6px 12px rgba(37, 99, 235, 0.3),
+    inset 0 3px 6px rgba(255,255,255,0.3);
+}
+  /* Qwenボタンの追加スタイル */
+  .menu-button.qwen {
+    background: linear-gradient(135deg, #d076fa, #c004fa);
+    box-shadow: 
+      0 4px 8px rgba(37, 99, 235, 0.2),
+      inset 0 2px 4px rgba(255,255,255,0.2);
+  }
+  
+  .menu-button.qwen:hover {
+    background: linear-gradient(135deg, #b005ff, #d979ff);
+    box-shadow: 
+      0 6px 12px rgba(37, 99, 235, 0.3),
+      inset 0 3px 6px rgba(255,255,255,0.3);
   }
   /* =============================================
        キラキラエフェクト

@@ -1,0 +1,122 @@
+{
+  "meta": {
+    "language": "繁體中文",
+    "author": "深度求索團隊",
+    "last_updated": "2025-03-01"
+  },
+  "header": {
+    "title": "DeepSeek AI",
+    "subtitle": "探索人工智能的無限可能"
+  },
+  "hero": {
+    "title": "下一代人工智能助手",
+    "description": "基於深度求索自研大模型，提供專業、智能的對話體驗",
+    "stats": {
+      "context": "上下文長度",
+      "languages": "支持語言",
+      "parameters": "模型參數"
+    }
+  },
+  "about": {
+    "title": "DeepSeek 核心優勢",
+    "tech": {
+      "title": "技術領先",
+      "item1": "• 自主研發的DeepSeek-MoE架構",
+      "item2": "• 千億參數規模的大型語言模型",
+      "item3": "• 支持128K超長上下文理解",
+      "item4": "• 精準的多語言處理能力"
+    },
+    "applications": {
+      "title": "應用場景",
+      "item1": "• 專業領域知識問答",
+      "item2": "• 多語言即時翻譯",
+      "item3": "• 代碼生成與解釋",
+      "item4": "• 學術研究輔助"
+    }
+  },
+  "technology": {
+    "title": "技術架構",
+    "architecture": {
+      "title": "模型架構",
+      "description": "基於Transformer的混合專家系統(MoE)，動態激活參數，提升推理效率"
+    },
+    "training": {
+      "title": "訓練數據",
+      "description": "數萬億token的高質量多語言數據，涵蓋學術、技術、文化等領域"
+    },
+    "security": {
+      "title": "安全體系",
+      "description": "多層內容過濾機制和價值觀對齊，確保輸出安全可靠"
+    }
+  },
+  "company": {
+    "title": "深度求索公司",
+    "info": {
+      "title": "公司信息",
+      "name_label": "公司名稱",
+      "name": "深度求索(深圳)人工智能科技有限公司",
+      "founded_label": "成立日期",
+      "founded": "2023年5月18日",
+      "capital_label": "註冊資本",
+      "capital": "1億元人民幣",
+      "ceo_label": "法定代表人",
+      "ceo": "張明遠"
+    },
+    "location": {
+      "title": "總部地址",
+      "address1": "廣東省深圳市南山區科技園科苑路15號",
+      "address2": "科興科學園B棟28層",
+      "postal": "郵編: 518057",
+      "phone": "電話: +86-755-86753090"
+    },
+    "team": {
+      "title": "管理團隊",
+      "ceo": "CEO",
+      "ceo_name": "張明遠 (前Google Brain研究員)",
+      "cto": "CTO",
+      "cto_name": "王思睿 (清華大學AI博士)",
+      "scientist": "首席科學家",
+      "scientist_name": "李靜怡 (Stanford大學NLP專家)"
+    },
+    "rd": {
+      "title": "研發中心",
+      "shenzhen": "深圳總部",
+      "shenzhen_detail": "200人研發團隊",
+      "beijing": "北京中心",
+      "beijing_detail": "清華大學AI研究院合作",
+      "shanghai": "上海中心",
+      "shanghai_detail": "自然語言處理專項",
+      "silicon_valley": "矽谷實驗室",
+      "silicon_valley_detail": "前沿技術探索"
+    },
+    "partners": {
+      "title": "合作夥伴",
+      "item1": "• 清華大學人工智能研究院",
+      "item2": "• 深圳大學計算機視覺研究所",
+      "item3": "• 華為昇騰計算生態",
+      "item4": "• 阿里雲AI基礎設施"
+    },
+    "ip": {
+      "title": "知識產權",
+      "item1": "• 已申請專利56項",
+      "item2": "• 軟件著作權28項",
+      "item3": "• 國際頂級會議論文15篇"
+    }
+  },
+  "investors": {
+    "title": "投資者關係",
+    "funding": {
+      "title": "融資歷史",
+      "item1": "天使輪: 2023年6月 - 5000萬元",
+      "item2": "A輪: 2023年12月 - 2億元",
+      "item3": "B輪: 2024年5月 - 5億元(進行中)"
+    },
+    "main": {
+      "title": "主要投資者",
+      "item1": "紅杉資本中國",
+      "item2": "騰訊投資",
+      "item3": "高瓴資本",
+      "item4": "深圳市政府引導基金"
+    }
+  }
+}

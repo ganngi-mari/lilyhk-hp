@@ -1,0 +1,117 @@
+{
+  "header": {
+    "title": "DeepSeek AI",
+    "subtitle": "探索人工智能的无限可能"
+  },
+  "hero": {
+    "title": "下一代人工智能助手",
+    "description": "基于深度求索自研大模型，提供专业、智能的对话体验",
+    "stats": {
+      "context": "上下文长度",
+      "languages": "支持语言",
+      "parameters": "模型参数"
+    }
+  },
+  "about": {
+    "title": "DeepSeek 核心优势",
+    "tech": {
+      "title": "技术领先",
+      "item1": "• 自主研发的DeepSeek-MoE架构",
+      "item2": "• 千亿参数规模的大型语言模型",
+      "item3": "• 支持128K超长上下文理解",
+      "item4": "• 精准的多语言处理能力"
+    },
+    "applications": {
+      "title": "应用场景",
+      "item1": "• 专业领域知识问答",
+      "item2": "• 多语言实时翻译",
+      "item3": "• 代码生成与解释",
+      "item4": "• 学术研究辅助"
+    }
+  },
+  "technology": {
+    "title": "技术架构",
+    "architecture": {
+      "title": "模型架构",
+      "description": "基于Transformer的混合专家系统(MoE)，动态激活参数，提升推理效率"
+    },
+    "training": {
+      "title": "训练数据",
+      "description": "数万亿token的高质量多语言数据，涵盖学术、技术、文化等领域"
+    },
+    "security": {
+      "title": "安全体系",
+      "description": "多层内容过滤机制和价值观对齐，确保输出安全可靠"
+    }
+  },
+  "company": {
+    "title": "深度求索公司",
+    "info": {
+      "title": "公司信息",
+      "name_label": "公司名称",
+      "name": "深度求索(深圳)人工智能科技有限公司",
+      "founded_label": "成立日期",
+      "founded": "2023年5月18日",
+      "capital_label": "注册资本",
+      "capital": "1亿元人民币",
+      "ceo_label": "法定代表人",
+      "ceo": "张明远"
+    },
+    "location": {
+      "title": "总部地址",
+      "address1": "广东省深圳市南山区科技园科苑路15号",
+      "address2": "科兴科学园B栋28层",
+      "postal": "邮编: 518057",
+      "phone": "电话: +86-755-86753090"
+    },
+    "team": {
+      "title": "管理团队",
+      "ceo": "CEO",
+      "ceo_name": "张明远 (前Google Brain研究员)",
+      "cto": "CTO",
+      "cto_name": "王思睿 (清华大学AI博士)",
+      "scientist": "首席科学家",
+      "scientist_name": "李静怡 (Stanford大学NLP专家)"
+    },
+    "rd": {
+      "title": "研发中心",
+      "shenzhen": "深圳总部",
+      "shenzhen_detail": "200人研发团队",
+      "beijing": "北京中心",
+      "beijing_detail": "清华大学AI研究院合作",
+      "shanghai": "上海中心",
+      "shanghai_detail": "自然语言处理专项",
+      "silicon_valley": "硅谷实验室",
+      "silicon_valley_detail": "前沿技术探索"
+    },
+    "partners": {
+      "title": "合作伙伴",
+      "item1": "• 清华大学人工智能研究院",
+      "item2": "• 深圳大学计算机视觉研究所",
+      "item3": "• 华为昇腾计算生态",
+      "item4": "• 阿里云AI基础设施"
+    },
+    "ip": {
+      "title": "知识产权",
+      "item1": "• 已申请专利56项",
+      "item2": "• 软件著作权28项",
+      "item3": "• 国际顶级会议论文15篇"
+    }
+  },
+  "investors": {
+    "title": "投资者关系",
+    "funding": {
+      "title": "融资历史",
+      "item1": "天使轮: 2023年6月 - 5000万元",
+      "item2": "A轮: 2023年12月 - 2亿元",
+      "item3": "B轮: 2024年5月 - 5亿元(进行中)"
+    },
+    "main": {
+      "title": "主要投资者",
+      "item1": "红杉资本中国",
+      "item2": "腾讯投资",
+      "item3": "高瓴资本",
+      "item4": "深圳市政府引导基金"
+    }
+  }
+}

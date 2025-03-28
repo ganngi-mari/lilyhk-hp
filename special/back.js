@@ -9,7 +9,7 @@
     const backButton = document.createElement('a');
     backButton.href = '../'; // 親ディレクトリに移動
     backButton.className = 'back-button-widget';
-    backButton.innerHTML = '<i class="fas fa-arrow-left"></i> 戻る';
+    backButton.innerHTML = '<i class="fas fa-home"></i> Home';
 
     // CSSを動的に追加
     const style = document.createElement('style');

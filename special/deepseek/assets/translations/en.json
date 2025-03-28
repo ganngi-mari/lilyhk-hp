@@ -1,0 +1,122 @@
+{
+  "meta": {
+    "language": "English",
+    "author": "DeepSeek Team",
+    "last_updated": "2025-03-01"
+  },
+  "header": {
+    "title": "DeepSeek AI",
+    "subtitle": "Exploring the Infinite Possibilities of AI"
+  },
+  "hero": {
+    "title": "Next-Generation AI Assistant",
+    "description": "Powered by our proprietary large model, delivering professional and intelligent conversational experiences",
+    "stats": {
+      "context": "Context Length",
+      "languages": "Supported Languages",
+      "parameters": "Model Parameters"
+    }
+  },
+  "about": {
+    "title": "DeepSeek Core Advantages",
+    "tech": {
+      "title": "Technical Leadership",
+      "item1": "• Proprietary DeepSeek-MoE architecture",
+      "item2": "• Large language model with 100B+ parameters",
+      "item3": "• Supports 128K ultra-long context understanding",
+      "item4": "• Accurate multilingual processing capabilities"
+    },
+    "applications": {
+      "title": "Application Scenarios",
+      "item1": "• Professional domain Q&A",
+      "item2": "• Real-time multilingual translation",
+      "item3": "• Code generation and explanation",
+      "item4": "• Academic research assistance"
+    }
+  },
+  "technology": {
+    "title": "Technical Architecture",
+    "architecture": {
+      "title": "Model Architecture",
+      "description": "Mixture of Experts (MoE) based on Transformer, dynamically activating parameters to improve inference efficiency"
+    },
+    "training": {
+      "title": "Training Data",
+      "description": "Trillions of high-quality multilingual tokens covering academic, technical, and cultural domains"
+    },
+    "security": {
+      "title": "Security System",
+      "description": "Multi-layer content filtering and value alignment to ensure safe and reliable outputs"
+    }
+  },
+  "company": {
+    "title": "DeepSeek Company",
+    "info": {
+      "title": "Company Information",
+      "name_label": "Company Name",
+      "name": "DeepSeek (Shenzhen) Artificial Intelligence Technology Co., Ltd.",
+      "founded_label": "Established Date",
+      "founded": "May 18, 2023",
+      "capital_label": "Registered Capital",
+      "capital": "100 million RMB",
+      "ceo_label": "Legal Representative",
+      "ceo": "Michael Zhang"
+    },
+    "location": {
+      "title": "Headquarters Address",
+      "address1": "No. 15 Keyuan Road, Science Park",
+      "address2": "Nanshan District, Shenzhen, Guangdong",
+      "postal": "Postal Code: 518057",
+      "phone": "Tel: +86-755-86753090"
+    },
+    "team": {
+      "title": "Management Team",
+      "ceo": "CEO",
+      "ceo_name": "Michael Zhang (Former Google Brain Researcher)",
+      "cto": "CTO",
+      "cto_name": "Sirui Wang (Ph.D. in AI, Tsinghua University)",
+      "scientist": "Chief Scientist",
+      "scientist_name": "Jingyi Li (NLP Expert, Stanford University)"
+    },
+    "rd": {
+      "title": "R&D Centers",
+      "shenzhen": "Shenzhen HQ",
+      "shenzhen_detail": "200-person R&D team",
+      "beijing": "Beijing Center",
+      "beijing_detail": "Collaboration with Tsinghua AI Research Institute",
+      "shanghai": "Shanghai Center",
+      "shanghai_detail": "Specialized in NLP",
+      "silicon_valley": "Silicon Valley Lab",
+      "silicon_valley_detail": "Cutting-edge technology exploration"
+    },
+    "partners": {
+      "title": "Partners",
+      "item1": "• Tsinghua University AI Research Institute",
+      "item2": "• Shenzhen University Computer Vision Institute",
+      "item3": "• Huawei Ascend Computing Ecosystem",
+      "item4": "• Alibaba Cloud AI Infrastructure"
+    },
+    "ip": {
+      "title": "Intellectual Property",
+      "item1": "• 56 patent applications",
+      "item2": "• 28 software copyrights",
+      "item3": "• 15 top-tier conference papers"
+    }
+  },
+  "investors": {
+    "title": "Investor Relations",
+    "funding": {
+      "title": "Funding History",
+      "item1": "Angel Round: June 2023 - 50 million RMB",
+      "item2": "Series A: December 2023 - 200 million RMB",
+      "item3": "Series B: May 2024 - 500 million RMB (ongoing)"
+    },
+    "main": {
+      "title": "Major Investors",
+      "item1": "Sequoia Capital China",
+      "item2": "Tencent Investment",
+      "item3": "Hillhouse Capital",
+      "item4": "Shenzhen Government Guidance Fund"
+    }
+  }
+}
