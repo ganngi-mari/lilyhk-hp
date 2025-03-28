@@ -1,30 +1,23 @@
 /* =============================================
-   🌸 陳麗華の實驗室 スペシャルデザイン完全版 🌸
-   - 季節の魔法
-   - キラキラエフェクト
-   - ふんわりアニメーション
-   - 完全レスポンシブ
-   - 特別日サプライズ
-   ============================================= */
-
-/* 〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️
    リセット＆ベーススタイル
-   〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️ */
+   ============================================= */
    * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
-  
   :root {
     --main-color: #ff9a9e;
     --sub-color: #fad0c4;
     --text-color: #5d3a3a;
     --accent-color: #ff6b6b;
+    --spring-color: #ffcce6;
+    --summer-color: #cce6ff;
+    --autumn-color: #ffddcc;
+    --winter-color: #e6e6ff;
   }
-  
   body {
-    font-family: 'Noto Sans HK', 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: 'Noto Sans TC', 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
     background: linear-gradient(135deg, var(--main-color), var(--sub-color));
     color: var(--text-color);
     min-height: 100vh;
@@ -33,10 +26,9 @@
     position: relative;
     line-height: 1.6;
   }
-  
-  /* 〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️
-     季節の魔法エフェクト
-     〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️ */
+  /* =============================================
+       季節の魔法エフェクト
+       ============================================= */
   body::before {
     content: "";
     position: fixed;
@@ -44,13 +36,12 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: 
-      radial-gradient(circle at 20% 30%, rgba(255,184,184,0.4) 0%, transparent 25%),
-      radial-gradient(circle at 80% 70%, rgba(255,223,211,0.4) 0%, transparent 25%);
+    background:
+      radial-gradient(circle at 20% 30%, rgba(255, 184, 184, 0.4) 0%, transparent 25%),
+      radial-gradient(circle at 80% 70%, rgba(255, 223, 211, 0.4) 0%, transparent 25%);
     animation: gentleMove 25s infinite alternate ease-in-out;
     z-index: -1;
   }
-  
   body::after {
     content: "";
     position: fixed;
@@ -63,43 +54,37 @@
     opacity: 0.6;
     background-repeat: repeat;
   }
-  
-  /* 春モード (3-5月) */
+  /* 春モード */
   body.spring::after {
-    background-image: 
-      url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="%23ff9a9e"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>'),
-      url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="%23ff6b6b"><circle cx="10" cy="10" r="3"/></svg>');
-    background-size: 30px 30px, 20px 20px;
+    background-image:
+      url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="%23ff9a9e"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>');
+    background-size: 30px 30px;
     animation: fallingPetals 20s linear infinite;
   }
-  
-  /* 夏モード (6-8月) */
+  /* 夏モード */
   body.summer::after {
-    background-image: 
+    background-image:
       url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="%23FFD700"><path d="M10 2L5 8l1 7h8l1-7z"/></svg>');
     background-size: 25px 25px;
     animation: twinkle 3s ease-in-out infinite alternate;
   }
-  
-  /* 秋モード (9-11月) */
+  /* 秋モード */
   body.autumn::after {
-    background-image: 
+    background-image:
       url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="%23FF8C00"><path d="M19 11h-6V5h-2v6H5v2h6v6h2v-6h6z"/></svg>');
     background-size: 35px 35px;
     animation: fallingLeaves 25s linear infinite;
   }
-  
-  /* 冬モード (12-2月) */
+  /* 冬モード */
   body.winter::after {
-    background-image: 
+    background-image:
       url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="%23FFFFFF"><path d="M10 0l1.8 5.6L18 6l-4.5 3.7 1.7 5.6-5.2-3.4-5.2 3.4 1.7-5.6L2 6l6.2-.4z"/></svg>');
     background-size: 25px 25px;
     animation: snowFall 30s linear infinite;
   }
-  
-  /* 〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️
-     メインレイアウト
-     〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️ */
+  /* =============================================
+       メインレイアウト & アニメーション
+       ============================================= */
   .container {
     display: grid;
     grid-template-areas:
@@ -107,25 +92,44 @@
       "announcement links"
       "menu contact";
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto 1fr;
     gap: 20px;
     max-width: 900px;
     margin: 0 auto;
     padding: 20px;
     position: relative;
   }
-  
-  /* 〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️
-     タイトルデザイン
-     〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️ */
+  @keyframes containerEntrance {
+    from {
+      opacity: 0;
+      transform: scale(0.95) translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+  @keyframes gentleBreath {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.005);
+    }
+  }
+  /* =============================================
+       タイトルデザイン
+       ============================================= */
   .title {
     grid-area: title;
     font-size: clamp(2.2rem, 9vw, 3.8rem);
     font-weight: 700;
     letter-spacing: 0.05em;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-    animation: 
-      fadeIn 1.5s ease-out,
-      gentleSway 8s infinite ease-in-out;
+    animation:
+      titleEntrance 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards,
+      gentleSway 8s infinite ease-in-out 1.2s;
     text-align: center;
     margin: 0 auto 30px;
     color: #fff;
@@ -135,30 +139,44 @@
     backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.3);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transform-style: preserve-3d;
     transition: all 0.5s ease;
   }
-  
-  .title:hover {
-    transform: scale(1.02) rotate(-1deg);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  @keyframes titleEntrance {
+    from {
+      opacity: 0;
+      transform: translateY(-30px) rotate(-5deg) scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) rotate(-2deg) scale(1);
+    }
   }
-  
-  /* 〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️
-     お知らせ島（季節ごとに色変化）
-     〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️ */
+  @keyframes gentleSway {
+    0%,
+    100% {
+      transform: rotate(-0.5deg);
+    }
+    50% {
+      transform: rotate(0.5deg);
+    }
+  }
+  /* =============================================
+       お知らせ島
+       ============================================= */
   .announcement-island {
     grid-area: announcement;
     width: min(420px, 90%);
     min-height: 150px;
-    background: rgba(200, 255, 200, 0.65);
+    background: var(--spring-color);
+    opacity: 0.65;
     border-radius: 25px;
-    box-shadow: 
+    box-shadow:
       0 8px 20px rgba(146, 104, 104, 0.15),
       inset 0 4px 10px rgba(255, 255, 255, 0.2);
     padding: 20px;
-    animation: 
-      float 6s infinite ease-in-out,
+    animation:
+      slideInLeft 1s ease-out forwards,
+      float 6s infinite ease-in-out 1s,
       colorShift 10s infinite alternate;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.4);
@@ -168,42 +186,48 @@
     position: relative;
     overflow: hidden;
   }
-  
   /* 季節ごとの色変化 */
   body.spring .announcement-island {
-    background: rgba(255, 200, 221, 0.65);
+    background: var(--spring-color);
   }
-  
   body.summer .announcement-island {
-    background: rgba(200, 240, 255, 0.65);
+    background: var(--summer-color);
   }
-  
   body.autumn .announcement-island {
-    background: rgba(255, 220, 200, 0.65);
+    background: var(--autumn-color);
   }
-  
   body.winter .announcement-island {
-    background: rgba(230, 230, 255, 0.65);
+    background: var(--winter-color);
   }
-  
-  /* 〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️
-     メニュー島（ふんわり円形）
-     〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️ */
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-50px) rotate(-5deg);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0) rotate(-1.5deg);
+    }
+  }
+  /* =============================================
+       メニュー島
+       ============================================= */
   .menu-island {
     grid-area: menu;
     width: min(160px, 40vw);
     height: min(160px, 40vw);
     background: rgba(255, 255, 255, 0.25);
     border-radius: 50%;
-    box-shadow: 
+    box-shadow:
       0 8px 15px rgba(146, 104, 104, 0.15),
       inset 0 4px 10px rgba(255, 255, 255, 0.3);
     display: flex;
     justify-content: center;
     align-items: center;
-    animation: 
-      float 5s infinite ease-in-out,
-      gentlePulse 3s infinite alternate;
+    animation:
+      popUp 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards,
+      float 5s infinite ease-in-out 1.2s,
+      gentlePulse 3s infinite alternate 1.2s;
     backdrop-filter: blur(8px);
     border: 1px solid rgba(255, 255, 255, 0.3);
     transform: rotate(2deg);
@@ -212,17 +236,34 @@
     position: relative;
     overflow: hidden;
   }
-  
-  /* 〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️
-     リンク島（回転アニメーション）
-     〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️ */
+  @keyframes popUp {
+    from {
+      opacity: 0;
+      transform: translateY(50px) scale(0.5) rotate(10deg);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1) rotate(2deg);
+    }
+  }
+  @keyframes gentlePulse {
+    0% {
+      transform: scale(1) rotate(2deg);
+    }
+    100% {
+      transform: scale(1.05) rotate(2deg);
+    }
+  }
+  /* =============================================
+       リンク島
+       ============================================= */
   .new-links-island {
     grid-area: links;
     width: min(200px, 45vw);
     height: min(200px, 45vw);
     background: rgba(255, 255, 255, 0.25);
     border-radius: 50%;
-    box-shadow: 
+    box-shadow:
       0 8px 15px rgba(146, 104, 104, 0.15),
       inset 0 4px 10px rgba(255, 255, 255, 0.3);
     display: flex;
@@ -230,45 +271,67 @@
     justify-content: center;
     align-items: center;
     padding: 15px;
-    animation: 
-      float 7s infinite ease-in-out 0.5s,
-      gentleTwirl 15s infinite linear;
+    animation:
+      swingInRight 1.1s ease-out forwards,
+      float 7s infinite ease-in-out 1.1s,
+      gentleTwirl 15s infinite linear 1.1s;
     backdrop-filter: blur(8px);
     border: 1px solid rgba(255, 255, 255, 0.3);
     transform: rotate(3deg);
     margin: 10px auto 0;
     position: relative;
   }
-  
-  /* 〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️
-     連絡先用の島（右下に配置）
-     〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️ */
+  @keyframes swingInRight {
+    from {
+      opacity: 0;
+      transform: translateX(50px) rotate(15deg);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0) rotate(3deg);
+    }
+  }
+  @keyframes gentleTwirl {
+    0% {
+      transform: rotate(3deg);
+    }
+    100% {
+      transform: rotate(363deg);
+    }
+  }
+  /* =============================================
+       連絡先用の島
+       ============================================= */
   .contact-island {
     grid-area: contact;
-    width: min(220px, 50vw);
-    min-height: 100px;
-    background: rgba(173, 216, 230, 0.7);
-    border-radius: 20px;
-    box-shadow: 
+    width: min(240px, 60vw); /* 横幅を少し広げる */
+    height: auto; /* 高さを自動調整 */
+    background: rgba(173, 216, 230, 0.8); /* 背景色を少し濃く */
+    border-radius: 50px; /* より丸みを強調 */
+    box-shadow:
       0 8px 15px rgba(146, 104, 104, 0.15),
       inset 0 2px 5px rgba(255, 255, 255, 0.3);
-    padding: 15px;
-    animation: 
-      float 5s infinite ease-in-out 1s,
-      colorShift 8s infinite alternate;
-    backdrop-filter: blur(8px);
+    padding: 20px 25px; /* 内部の余白を増やす */
+    animation:
+      bounceIn 1.3s cubic-bezier(0.175, 0.885, 0.32, 1.6) forwards,
+      float 5s infinite ease-in-out 1.3s,
+      colorShift 8s infinite alternate 1.3s;
+    backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.4);
-    transform: rotate(-1deg);
-    margin: -20px auto 0;
+    transform: rotate(-2deg); /* 角度を少し調整 */
+    margin: 0 auto;
     position: relative;
-    right: -15px;
-    transition: all 0.4s ease;
     overflow: hidden;
   }
-  
-  /* 〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️
-     ボタンデザイン（全ボタン共通）
-     〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️ */
+  .contact-island:hover {
+    transform: scale(1.05) rotate(-1deg); /* 少し拡大して角度を戻す */
+    box-shadow:
+      0 10px 20px rgba(146, 104, 104, 0.2),
+      inset 0 4px 10px rgba(255, 255, 255, 0.4);
+  }
+  /* =============================================
+       ボタンデザイン
+       ============================================= */
   .menu-button {
     display: inline-block;
     padding: clamp(10px, 3vw, 14px) clamp(15px, 4vw, 22px);
@@ -278,9 +341,9 @@
     font-weight: 600;
     color: white;
     text-decoration: none;
-    box-shadow: 
+    box-shadow:
       0 4px 8px rgba(210, 94, 94, 0.2),
-      inset 0 2px 4px rgba(255,255,255,0.2);
+      inset 0 2px 4px rgba(255, 255, 255, 0.2);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     margin: 6px;
     border: none;
@@ -289,10 +352,61 @@
     overflow: hidden;
     z-index: 1;
   }
-  
-  /* 〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️
-     キラキラエフェクト
-     〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️ */
+  .menu-button:hover {
+    transform: scale(1.1) rotate(2deg);
+    box-shadow:
+      0 6px 12px rgba(210, 94, 94, 0.3),
+      inset 0 3px 6px rgba(255, 255, 255, 0.3);
+    background: linear-gradient(135deg, #ff7b7b, #ff5a5a);
+  }
+  .menu-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.3) 50%,
+        transparent 100%);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+    z-index: -1;
+  }
+  .menu-button:hover::before {
+    transform: translateX(100%);
+  }
+  .menu-button::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    box-shadow:
+      0 0 10px 5px rgba(255, 255, 255, 0.4),
+      0 0 20px 10px rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+  }
+  .menu-button:active::after {
+    transform: translate(-50%, -50%) scale(10);
+    opacity: 1;
+  }
+  .menu-button span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    z-index: 1;
+  }
+  /* =============================================
+       キラキラエフェクト
+       ============================================= */
   .sparkle {
     position: absolute;
     width: 4px;
@@ -300,82 +414,97 @@
     background: #fff;
     border-radius: 50%;
     pointer-events: none;
-    animation: 
+    animation:
       sparkle 1.2s ease-out forwards,
       gentleFloat 3s ease-in-out infinite;
-    box-shadow: 
+    box-shadow:
       0 0 8px 2px rgba(255, 255, 255, 0.8),
       0 0 15px 5px rgba(255, 200, 200, 0.6);
     z-index: 10;
   }
-  
-  /* 〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️
-     アニメーション定義
-     〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️ */
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-15px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  
-  @keyframes float {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-10px) rotate(1deg); }
-  }
-  
-  @keyframes gentleSway {
-    0%, 100% { transform: rotate(-0.5deg); }
-    50% { transform: rotate(0.5deg); }
-  }
-  
-  @keyframes gentleMove {
-    0% { transform: translate(-10px, -10px); }
-    50% { transform: translate(5px, 5px); }
-    100% { transform: translate(10px, 10px); }
-  }
-  
-  @keyframes fallingPetals {
-    0% { background-position: 0 0, 20px 20px; }
-    100% { background-position: 0 500px, 20px 520px; }
-  }
-  
-  @keyframes snowFall {
-    0% { background-position: 0 0, 10px 10px; }
-    100% { background-position: 0 500px, 10px 510px; }
-  }
-  
-  @keyframes gentlePulse {
-    0% { transform: scale(1) rotate(2deg); }
-    100% { transform: scale(1.05) rotate(2deg); }
-  }
-  
-  @keyframes gentleTwirl {
-    0% { transform: rotate(3deg); }
-    100% { transform: rotate(363deg); }
-  }
-  
   @keyframes sparkle {
-    0% { 
-      opacity: 0; 
-      transform: scale(0.2) rotate(0deg); 
+    0% {
+      opacity: 0;
+      transform: scale(0.2) rotate(0deg);
     }
-    50% { 
-      opacity: 1; 
-      transform: scale(1) rotate(180deg); 
+    50% {
+      opacity: 1;
+      transform: scale(1) rotate(180deg);
     }
-    100% { 
-      opacity: 0; 
-      transform: scale(1.3) rotate(360deg); 
+    100% {
+      opacity: 0;
+      transform: scale(1.3) rotate(360deg);
     }
   }
-  
+  @keyframes gentleFloat {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  /* =============================================
+       共通アニメーション
+       ============================================= */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-15px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-10px) rotate(1deg);
+    }
+  }
+  @keyframes gentleMove {
+    0% {
+      transform: translate(-10px, -10px);
+    }
+    50% {
+      transform: translate(5px, 5px);
+    }
+    100% {
+      transform: translate(10px, 10px);
+    }
+  }
+  @keyframes fallingPetals {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 0 500px;
+    }
+  }
+  @keyframes snowFall {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 0 500px;
+    }
+  }
   @keyframes colorShift {
-    0% { filter: hue-rotate(0deg); }
-    100% { filter: hue-rotate(10deg); }
+    0% {
+      filter: hue-rotate(0deg);
+    }
+    100% {
+      filter: hue-rotate(10deg);
+    }
   }
-  
-  /* 〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️
-     レスポンシブ調整
-     〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️ */
+  /* =============================================
+       レスポンシブ調整
+       ============================================= */
   @media (max-width: 768px) {
     .container {
       grid-template-areas:
@@ -385,15 +514,11 @@
         "links"
         "contact";
       grid-template-columns: 1fr;
+      grid-template-rows: auto;
       gap: 15px;
       max-width: 95%;
     }
-    
-    .title {
-      margin-bottom: 20px;
-      padding: 12px 20px;
-    }
-    
+    .title,
     .announcement-island,
     .menu-island,
     .new-links-island,
@@ -402,23 +527,38 @@
       transform: none !important;
       right: auto !important;
       width: min(90%, 350px);
+      animation:
+        fadeInUp 0.8s ease-out forwards,
+        float 5s infinite ease-in-out !important;
     }
-    
     .menu-island,
     .new-links-island {
       height: min(160px, 70vw);
       margin-top: 10px !important;
     }
-    
+    .menu-island,
+    .contact-island,
+    .new-links-island {
+      height: auto;
+    }
     .contact-island {
-      margin-top: 5px !important;
-      right: auto !important;
+      right: auto;
+      margin-top: 15px !important;
     }
   }
-  
-  /* 〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️
-     タッチデバイス用の調整
-     〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️ */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  /* =============================================
+       タッチデバイス用の調整
+       ============================================= */
   @media (hover: none) {
     .menu-button:hover,
     .email-link:hover,
@@ -426,47 +566,36 @@
     .contact-island:hover {
       transform: none !important;
     }
-    
     .menu-button:active,
     .email-link:active {
       transform: scale(0.96) !important;
     }
-    
     .menu-button:active::after {
       transform: translate(-50%, -50%) scale(8);
       opacity: 1;
     }
   }
-  
-  /* 〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️
-     特別日モード（クリスマス）
-     〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️ */
+  /* =============================================
+       特別日モード（クリスマス）
+       ============================================= */
   body.xmas-mode {
     --main-color: #ffd8d8;
     --sub-color: #d4f0fd;
     --text-color: #5d3a3a;
     --accent-color: #ff6b6b;
   }
-  
   body.xmas-mode::before {
-    background: 
-      radial-gradient(circle at 20% 30%, rgba(255,216,216,0.6) 0%, transparent 30%),
-      radial-gradient(circle at 80% 70%, rgba(212,240,253,0.6) 0%, transparent 30%);
+    background:
+      radial-gradient(circle at 20% 30%, rgba(255, 216, 216, 0.6) 0%, transparent 30%),
+      radial-gradient(circle at 80% 70%, rgba(212, 240, 253, 0.6) 0%, transparent 30%);
   }
-  
   body.xmas-mode::after {
-    background-image: 
+    background-image:
       url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="%23FF0000"><path d="M10 0l3 6 6 .5-4.5 4 1.5 6-5.5-3.5L5.5 17l1.5-6L2 6.5 7 6z"/></svg>'),
       url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="%23FFFFFF"><circle cx="10" cy="10" r="2"/></svg>');
     animation: xmasSparkle 5s linear infinite;
     opacity: 0.8;
   }
-  
-  @keyframes xmasSparkle {
-    0% { background-position: 0 0, 10px 10px; }
-    100% { background-position: 0 100px, 10px 110px; }
-  }
-  
   body.xmas-mode .title::after {
     content: "🎄 Merry Christmas! 🎄";
     display: block;
@@ -474,26 +603,35 @@
     margin-top: 5px;
     animation: blink 2s infinite;
   }
-  
   body.xmas-mode .contact-island {
     background: rgba(230, 255, 230, 0.7);
     box-shadow: 0 0 15px rgba(50, 255, 50, 0.3);
   }
-  
   body.xmas-mode .contact-island::before {
     content: "🎁";
     font-size: 2rem;
     opacity: 0.3;
   }
-  
-  @keyframes blink {
-    0%, 100% { opacity: 0.7; }
-    50% { opacity: 1; }
+  @keyframes xmasSparkle {
+    0% {
+      background-position: 0 0, 10px 10px;
+    }
+    100% {
+      background-position: 0 100px, 10px 110px;
+    }
   }
-  
-  /* 〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️
-     その他コンポーネント
-     〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️ */
+  @keyframes blink {
+    0%,
+    100% {
+      opacity: 0.7;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+  /* =============================================
+       その他コンポーネント
+       ============================================= */
   .announcement-title {
     font-size: clamp(1.4rem, 5vw, 1.8rem);
     font-weight: bold;
@@ -505,19 +643,16 @@
     color: #4a6b4a;
     position: relative;
   }
-  
   .announcement-title span {
     font-size: clamp(1.6rem, 6vw, 2.2rem);
     animation: bounce 2s infinite, twist 4s infinite ease-in-out;
   }
-  
   .announcement-content {
     font-size: clamp(1rem, 3.5vw, 1.1rem);
     text-align: center;
     line-height: 1.5;
     position: relative;
   }
-  
   .announcement-content a {
     color: #4a6b4a;
     text-decoration: none;
@@ -526,7 +661,6 @@
     transition: all 0.3s ease;
     padding: 0 2px;
   }
-  
   .announcement-content a::after {
     content: "";
     position: absolute;
@@ -539,16 +673,13 @@
     transform-origin: right;
     transition: transform 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
   }
-  
   .announcement-content a:hover {
     color: var(--accent-color);
   }
-  
   .announcement-content a:hover::after {
     transform: scaleX(1);
     transform-origin: left;
   }
-  
   .contact-title {
     font-size: clamp(1.1rem, 4vw, 1.5rem);
     margin-bottom: 8px;
@@ -559,7 +690,6 @@
     color: #3a5d5d;
     position: relative;
   }
-  
   .contact-title::after {
     content: "";
     position: absolute;
@@ -571,12 +701,10 @@
     background: rgba(255, 154, 158, 0.5);
     border-radius: 2px;
   }
-  
   .contact-content {
     font-size: clamp(0.85rem, 3vw, 1rem);
     text-align: center;
   }
-  
   .email-link {
     color: #3a5d5d;
     text-decoration: none;
@@ -589,13 +717,11 @@
     overflow: hidden;
     font-weight: 500;
   }
-  
   .email-link:hover {
     background: rgba(255, 255, 255, 0.5);
     transform: translateY(-2px);
     color: var(--accent-color);
   }
-  
   .email-link::before {
     content: "";
     position: absolute;
@@ -603,26 +729,21 @@
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgba(255,255,255,0.4),
-      transparent
-    );
+    background: linear-gradient(90deg,
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        transparent);
     transition: left 0.7s ease;
   }
-  
   .email-link:hover::before {
     left: 100%;
   }
-  
   .email-link span {
     display: flex;
     align-items: center;
     gap: 6px;
     position: relative;
   }
-  
   .email-link:hover::after {
     content: "メール待ってます♪";
     display: block;
@@ -635,26 +756,39 @@
     white-space: nowrap;
     animation: textBounce 0.5s ease;
   }
-  
   @keyframes textBounce {
-    0%, 100% { transform: translateX(-50%) scale(1); }
-    50% { transform: translateX(-50%) scale(1.1); }
+    0%,
+    100% {
+      transform: translateX(-50%) scale(1);
+    }
+    50% {
+      transform: translateX(-50%) scale(1.1);
+    }
   }
-  
   @keyframes twist {
-    0%, 100% { transform: rotate(0deg); }
-    25% { transform: rotate(5deg); }
-    75% { transform: rotate(-5deg); }
+    0%,
+    100% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(5deg);
+    }
+    75% {
+      transform: rotate(-5deg);
+    }
   }
-  
   @keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-5px); }
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
   }
-  
-  /* 〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️
-     コンソールメッセージ
-     〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️〰️ */
+  /* =============================================
+       コンソールメッセージ
+       ============================================= */
   @media (min-width: 768px) {
     .container::after {
       content: "🎀 コンソールを開くとサプライズが...！";
@@ -666,8 +800,12 @@
       animation: gentleFade 3s infinite;
     }
   }
-  
   @keyframes gentleFade {
-    0%, 100% { opacity: 0.3; }
-    50% { opacity: 0.7; }
+    0%,
+    100% {
+      opacity: 0.3;
+    }
+    50% {
+      opacity: 0.7;
+    }
   }
